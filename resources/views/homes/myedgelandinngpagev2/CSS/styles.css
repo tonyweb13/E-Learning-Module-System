@@ -1,0 +1,323 @@
+
+html, body{
+	overflow-x: hidden;
+}
+
+
+.bodyContainer{
+	margin-top:80px;
+}
+
+.container{
+	overflow:hidden;
+}
+
+a{
+	text-decoration:none !important;
+}
+.navbar{
+	background-color:#FFFFFF !important;
+}
+
+#navbar-logo{
+	width:120px;
+}
+
+.nav-link{
+	border-radius: 5px 0px 20px 5px;
+	padding:5px 15px !important; 
+}
+
+.nav-link:hover{
+	background-color:#0F87D8;
+	color:#FFFFFF !important;
+}
+
+
+.nav-link:active{
+	background-color:#0F87D8 !important;
+	color:#FFFFFF !important;
+}
+
+
+#loginBtn{
+	border-radius: 5px 0px 20px 5px;
+	background-color:#FF9C00 !important;
+	color:#FFFFFF !important;
+	width:100px;
+	text-align:center;
+}
+#loginBtn:hover{
+	background-color:#C97E11 !important;
+	color:#FFFFFF !important;
+}
+
+
+.slanted {
+    background-color:#FFFFFF;
+    height:650px;
+	width:100%;
+	position:absolute;
+	top:0px;
+	z-index:-1;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+	background-image: url("../images/homeBG.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:bottom right;
+}
+
+
+
+.blueSlanted{
+	background-color:#0f87d8;
+	height:650px;
+	width:100%;
+	position:absolute;
+	z-index:-2;
+	top:200px;
+	-webkit-clip-path: polygon(100% 0%, 0% 0%, 0% 40%, 100% 70%);
+	clip-path: polygon(100% 0%, 0% 0%, 0% 40%, 100% 70%);
+}
+/*
+.blueSlanted{
+	background-color:#0f87d8;
+	height:800px;
+	width:100%;
+	position:absolute;
+	z-index:-2;
+	top:-225px;
+	right:-200px;
+	-ms-transform: rotate(8deg);  
+  -webkit-transform: rotate(8deg);  
+  transform: rotate(8deg);
+}
+*/
+.featurette-heading{
+	color:#0f87d8 !important;
+}
+
+
+.orangeBtn{
+	border-radius: 5px 0px 20px 5px !important;
+	background-color:#FF9C00 !important;
+	color:#FFFFFF !important;
+	padding:10px 15px !important; 
+	width:200px;
+	font-size:130% !important;
+	text-align:center;
+}
+
+.row{
+	margin: 20px 0px !important;
+}
+
+.blueBtn{
+	text-align:center;
+	width:220px;
+	padding:20px 0px;
+	margin:20px auto;
+	border-radius: 10px 0px 30px 10px;
+	background-color:#0F87D8;
+	color:#FFFFFF !important;
+}
+button.blueBtn{
+	border:none;
+}
+
+.feature-icon{
+	margin-bottom:10px !important;
+}
+
+input{
+	background-color:#eaeaea !important;
+}
+
+textarea#comments{
+	height:200px;
+	background-color:#eaeaea !important;
+}
+
+footer .link-secondary{
+	color:#ebebeb !important;
+}
+
+.link-secondary:hover{
+	color:#ffd200 !important;
+}
+
+footer{
+	margin-top:80px !important;
+}
+
+footer h5{
+	color:#FFCE00 !important;
+	border-bottom:1px #FFFFFF solid;
+	padding-bottom:5px;
+	width:95%;
+}
+
+footer ul{
+	margin-top:20px;
+}
+
+.simpleBtn{
+	color:#000000 !important;
+	border-bottom:2px #0F87D8 solid;
+	width:80px;
+	padding:5px 0px;
+	margin:0px auto;
+}
+
+.copywrite{
+	font-size:70%;
+	color:#FFFFFF;
+	padding:20px 0px;
+}
+
+
+.footerBg{
+	width:100% !important;
+	background-image: url("../images/footerBG.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:top left;
+}
+
+.deviceBg{
+	width:100% !important;
+	background-image: url("../images/deviceBG.png");
+	background-repeat:no-repeat;
+	background-size:100%;
+	background-position:bottom left;
+}
+
+a.deviceHolder{
+	text-align:center;
+}
+
+.device{
+	width:60%;
+	margin:0px auto !important;
+}
+
+.contactIcon{
+	width:30px;
+}
+.deviceIcon{
+	width:150px;
+	margin:5px 20px;
+}
+
+.registerHolder{
+	margin-top:120px !important;
+	width:100% !important;
+}
+
+#aboutPage{
+	margin-top:100px;
+}
+
+
+
+.socialMedia li{
+  margin-right:15px;
+  display:inline !important;
+}
+
+#homePage .px-3{
+		width:450px;
+	}
+	
+
+.playlist {
+	 list-style-type: none;
+	 margin:0px;
+}
+
+.playlist li{
+	border:1px red solid;
+	padding:10px 10px;
+	margin-left:-30px;
+}
+
+@media only screen and (max-width: 750px) {
+	.homepageDescription{
+		position:absolute !important;
+		width:85%;
+		margin-top:100px;
+		text-align:center;
+	}
+	.homepageDescription h4{
+		color:#FFFFFF !important;
+	}
+
+
+  
+  #homePage h1 strong {
+	  color:#000000 !important;
+  }
+  
+  
+  
+  .slanted {
+    background-color:#FFFFFF;
+    height:350px;
+	width:100%;
+	position:absolute;
+	top:0px;
+	z-index:-1;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+	background-image: url("../images/homeBG2.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:top right;
+}
+
+
+
+.blueSlanted{
+	background-color:#0f87d8;
+	height:650px;
+	width:100%;
+	position:absolute;
+	z-index:-2;
+	top:200px;
+	-webkit-clip-path: polygon(100% 0%, 0% 0%, 0% 40%, 100% 50%);
+	clip-path: polygon(100% 0%, 0% 0%, 0% 40%, 100% 50%);
+}
+	
+	.registerHolder .orangeBtn{
+	}
+	
+	#aboutPage{
+		margin-top:300px;
+	}
+	
+	.device{
+		width:150px;
+	}
+	
+	.deviceBg{
+		width:100% !important;
+		background-image: url("../images/deviceBG.png");
+		background-repeat:no-repeat;
+		background-size:cover;
+		background-position:bottom right;
+	}
+	
+	.deviceBg .d-grid{
+		display:inline !important;
+	}
+	
+	.hometitle{
+		text-align:center !important;
+		font-size:230%;
+	}
+	
+	#homePage .px-3{
+		width:100%;
+	}
+}
