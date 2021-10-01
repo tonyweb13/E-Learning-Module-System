@@ -11,5 +11,57 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+ mix.styles([
+    'resources/assets/css/bootstrap/bootstrap.min.css',
+    'resources/assets/css/bootstrap/bootstrap-grid.min.css',
+    'resources/assets/css/bootstrap/bootstrap-reboot.min.css',
+    'resources/assets/css/bootstrap/bootstrap-select.min.css',
+    'resources/assets/css/animate/animate.min.css',
+    'resources/assets/css/jquery-ui/jquery-ui.css',
+    'resources/assets/css/swal/swal.min.css',
+    'resources/assets/css/fontawesome.min.css',
+    'resources/assets/css/footer-responsive.css',
+    'resources/assets/css/main-break.css',
+    'resources/assets/css/main.css',
+    'resources/assets/css/owl.carousel.min.css',
+    'resources/assets/css/prettyPhoto.css',
+    'resources/assets/css/responsive.css',
+    'resources/assets/css/add.css',
+    'resources/assets/css/additional.css',
+    'resources/assets/css/app.css',
+    'resources/assets/css/chat.css',
+    'resources/assets/css/colors.css',
+    'resources/assets/css/login.css',
+    'resources/assets/css/sidenav.css',
+    'resources/assets/css/web.css',
+],'public/css/public.css');
+
+mix.js([
+    'resources/assets/js/bootstrap/bootstrap.min.js',
+    'resources/assets/js/bootstrap/bootstrap-select.min.js',
+    'resources/assets/js/bootstrap/bootstrap.bundle.min.js',
+    'resources/assets/js/jquery/jquery-3.4.1.min.js',
+    'resources/assets/js/jquery/jquery.maphilight.js',
+    'resources/assets/js/jquery/jquery.matchHeight.js',
+    'resources/assets/js/jquery-ui/jquery-ui.js',
+    'resources/assets/js/popper/popper.min.js',
+    'resources/assets/js/swal/swal.min.js',
+    'resources/assets/js/socket.io/socket.io.min.js',
+    'resources/assets/js/alert.js',
+    'resources/assets/js/authoring-tool.js',
+    'resources/assets/js/gauge.js',
+    'resources/assets/js/global_functions.js',
+    'resources/assets/js/helper.js',
+    'resources/assets/js/main.js',
+    'resources/assets/js/manifest.js',
+    'resources/assets/js/my.js',
+    'resources/assets/js/navbar.js',
+    'resources/assets/js/owl.carousel.min.js',
+    'resources/assets/js/zipcode.js',
+], 'public/js/public.js');
+
+mix.copyDirectory('resources/assets/fonts','public/fonts', false);
+
+mix.copyDirectory('resources/assets/img', 'public/img');
+
+mix.version();

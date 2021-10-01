@@ -1,0 +1,110 @@
+@media (max-width: 991px) {
+    footer.footer {
+        height: auto;
+        padding: 50px 0 20px;
+    }
+    .footer-bridge-road li {
+        padding:0;
+    }
+    .footer-bridge-road a {
+        top:0;
+        padding: 5px 20px;
+    }
+    .footer-cont-3,
+    .footer-cont-1 {
+        margin-top: 0;
+    }
+    <footer class="footer">
+			<div class="container">
+					<div class="footer-bridge-road">
+						<ul>
+							<li class="list-inline-item">
+								<a href="">HOME</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">ABOUT US</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">BLOG</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">CAREERS</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">CONTACT US</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">FAQ</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="">LOGIN</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="footer-cont">
+								<img src="img/logo/bridge-road-footer-logo.png">
+								<p>390 1st Street  PO Box 160 <br>Winkler, MB R6W 4A4</p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="footer-cont-1">
+								<h3>CONTACT US</h3>
+								<li class="list-inline-item"><a href="" class="fab fa-facebook"></a></li>
+								<li class="list-inline-item"><a href="" class="fab fa-instagram"></a></li>
+								<li class="list-inline-item"><a href="" class="fab fa-twitter"></a></li>
+							</div>
+						</div>
+						<div class="col-md-4 footer-3">
+							<div class="row">
+								<div class="col-md-3">
+									
+								</div>
+								<div class="footer-cont-3 col-md-9 row">
+									<li class="footer-sp-1"><a href="">FIND	A CARE HOME</a></li>
+									<li class="footer-sp"><a href="">FIND INDEPENDENT LIVING</a></li>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mavericks-copy-right">
+						<p>© 2013 Bridge Road Developments Ltd. Our family of 50plus Properties Welcomes You Home. Our Team at BRD believes in what we do and it shows in our commitment to offer you peace of mind in your decision to move and be a part of o ur family. We're here to help with every detail.</p>
+					</div>
+				</div>		
+			</div>
+	    </footer> {
+        display: inline-block;
+    }
+    footer .row {
+        align-items: center;
+    }
+    footer .mavericks-copy-right p {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-bridge-road {
+        margin-bottom: 3rem;
+    }
+    .footer-bridge-road a {
+        padding: 10px 10px;
+        display: inline-block;
+    }
+
+    .footer-cont,
+    .footer-cont-3,
+    .footer-cont-1,
+    .footer-cont-3 li {
+        text-align: center;
+        margin: 0;
+    }
+
+    .footer-cont-3 li a {
+        margin:5px 0;
+    }
+
+}
