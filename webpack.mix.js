@@ -37,6 +37,21 @@ const mix = require('laravel-mix');
     'resources/assets/css/sidenav.css',
 ],'public/css/public.css');
 
+mix.js([
+    'resources/assets/js/jquery/jquery-3.4.1.min.js',
+    'resources/assets/js/jquery-ui/jquery-ui.js',
+    'resources/assets/js/popper/popper.min.js',
+    'resources/assets/js/bootstrap/bootstrap.min.js',
+    'resources/assets/js/socket.io/socket.io.min.js',
+    'resources/assets/js/swal/swal.min.js',
+], 'public/js/libraries.js');
+
+mix.js([
+    'resources/assets/js/manifest.js',
+    'resources/assets/js/vendor.js',
+    'resources/assets/js/helper.js',
+], 'public/js/public.js');
+
 mix.copyDirectory('resources/assets/fonts','public/fonts', false);
 
 mix.copyDirectory('resources/assets/img', 'public/img');

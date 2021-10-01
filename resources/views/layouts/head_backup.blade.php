@@ -72,10 +72,7 @@
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
 
-
     <!-- psi -->
-
-
 
     <script src="{{ asset('js/manifest.js') }}"></script> <!-- Laravel Webpack Manifest -->
 

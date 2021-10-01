@@ -60,16 +60,6 @@
 
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
-
-
-    <!-- psi -->
-
-
-
-    <script src="{{ asset('js/manifest.js') }}"></script> <!-- Laravel Webpack Manifest -->
-
-    <script src="{{ asset('js/vendor.js') }}"></script> <!-- External Libraries -->
-
-    <script src="{{ asset('js/helper.js') }}"></script> <!-- Helper Scripts -->
+    <script src="{{ mix('js/public.js') }}"></script>
 
 </head>
