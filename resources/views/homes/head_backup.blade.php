@@ -70,7 +70,13 @@
 
             @auth<meta name="uid" content="{{Auth::user()->id}}" />@endauth
 
+
+
+
+
             @yield('scripts')
+
+
 
             <script type="text/javascript" src="/js/jquery/jquery-3.4.1.min.js"></script>
 
@@ -93,6 +99,8 @@
             <!-- chartingjs -->
 
             <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+
+
 
             <!-- psi -->
 
