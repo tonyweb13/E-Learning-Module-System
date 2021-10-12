@@ -61,9 +61,7 @@
             <!-- chartingjs -->
             <script src="https://code.jscharting.com/latest/jscharting.js"></script>
 
-            <script src="{{ asset('js/helper.js') }}"></script>
-
-            <script src="{{ asset('js/manifest.js') }}"></script>
+            <script src="{{ mix('js/public.js') }}"></script>
     </head>
 
     <body>
