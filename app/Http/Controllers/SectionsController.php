@@ -1240,7 +1240,41 @@ class SectionsController extends Controller
         return view('sections.subjects.assessments.view-assessment-student',compact('section','subject','result','type'));
     }
     
-    
+    public function subjectAnswerAssessment2($section_id,$subject_id,$assessment_id){
+        
+        $type='subject';
+        $section=Section::with('grade')->where('id',$section_id)->first();
+        $subject=SectionSubject::where('id',$subject_id)->first();
+        $currentuser=Auth::user();
+        $result=SubjectAssessment::with([
+                                            'assessmentQuestion'=>function($q){
+                                                $q->where('is_deleted',0);
+                                            },
+                                            'assessmentQuestion.question'=>function($q){
+                                                $q->where('is_deleted',0);
+                                            },
+                                            'assessmentQuestion.question.questionType',
+                                            'assessmentQuestion.question.answer',
+                                            'assessmentStudent'=>function($s) use($currentuser){
+                                                $s->where('student_id',$currentuser->id)
+                                                  ->where('is_deleted',0);
+                                            }
+                                        ])
+                                    ->whereHas('assessmentQuestion',function($q){
+                                         $q->where('is_deleted',0)
+                                           ->whereHas('question',function($q){
+                                                 $q->where('is_deleted',0);
+                                            });
+                                    })
+                                    // ->whereHas('assessmentQuestion.question',function($q){
+                                    //      $q->where('is_deleted',0);
+                                    // })
+                                  ->where('id',$assessment_id)
+                                  ->where('is_deleted',0)
+                                  ->first();
+      //  return $result;
+        return view('sections.subjects.assessments.view-assessment-student2',compact('section','subject','result','type'));
+    }
 
     // QUESTIONS
     public function getQuestionType(){
@@ -1895,6 +1929,35 @@ class SectionsController extends Controller
         return view('sections.subjects.assessments.view-submitted-assessment',compact('section','subject','assessment','result','user_id','type','keyword','total','over','assessment_student'));
     }
     
+    public function subjectViewSubmittedAssessment2(Request $request,$section_id,$subject_id,$user_id,$assessment_id){
+        
+        //$assessment_id = 34069;
+        $keyword = $request->keyword;
+        $type='subject';
+        $section=Section::with('grade')->where('id',$section_id)->first();
+        $subject=SectionSubject::where('id',$subject_id)->first();
+        $assessment=SubjectAssessment::where('id',$assessment_id)->first();
+        $assessment_student= AssessmentStudent::where('subject_assessment_id',$assessment_id)
+                                             ->where('student_id',$user_id)
+                                             ->first();
+        $result=SubmittedAssessment::with([
+                                            'question'
+                                          ])
+                                   ->where('subject_assessment_id',$assessment_id)
+                                   ->where('added_by',$user_id)
+                                   ->where('is_deleted',1)
+                                   ->orderby('id')
+                                   ->get();
+        $total=0;
+        $over=0;
+        foreach($result as $d){
+            $total=$total + $d->apoint;
+            $over=$over + $d->point;
+        } 
+        //return  $result;            
+        return view('sections.subjects.assessments.view-submitted-assessment',compact('section','subject','assessment','result','user_id','type','keyword','total','over','assessment_student'));
+    }
+    
     public function subjectAssessmentGrade(Request $request){
         
         $has_exceptions = DB::transaction(function() use($request) {
@@ -2121,6 +2184,7 @@ class SectionsController extends Controller
     //record of every subject 
     public function recordSubject($section_id,$id){
         
+        Set_time_limit(0);
         $section=Section::where('id',$section_id)->first();
         $subject=SectionSubject::with([     
                                             'sectionAssessmentScale'
@@ -2147,7 +2211,13 @@ class SectionsController extends Controller
                                     ->where('is_deleted',0)
                                     ->orderBy('id')
                                     ->get();
-        $students=SectionStudent::where('section_id',$section_id)->get();
+        // $students=SectionStudent::where('section_id',$section_id)->get();
+        $students=SectionStudent::where('section_id',$section_id)->paginate(10);
+
+        $students->appends([
+            'search_pagination' => 10
+        ]);
+        
         $results=[];
         $studresult=[];
         $assessmentresult=[];
@@ -2215,9 +2285,8 @@ class SectionsController extends Controller
             $average=0;
         }
         
-            //return $sas;
         //return $results;
-        return view('sections.records.subject-report',compact('scales','section','results','subject'));
+        return view('sections.records.subject-report',compact('scales','section','results','subject','students'));
            
     }
     

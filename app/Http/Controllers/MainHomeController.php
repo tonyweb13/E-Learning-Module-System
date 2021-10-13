@@ -95,6 +95,7 @@ class MainHomeController extends Controller
                         ->where('is_deleted',0)
                         ->where('added_by','!=',$currentuser->id)
                         ->orderBy('date_created','desc')
+                        ->limit(3)
                         ->get();
                         
                 //create folder for drive
@@ -113,6 +114,7 @@ class MainHomeController extends Controller
                         ->where('is_deleted',0)
                         ->where('added_by','!=',$currentuser->id)
                         ->orderBy('date_created','desc')
+                        ->limit(3)
                         ->get();
                         
                 //create folder for drive

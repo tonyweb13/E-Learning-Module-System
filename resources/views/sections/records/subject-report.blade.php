@@ -79,6 +79,7 @@
                     @endforeach
                 </table>
             </div>
+            <div id="page-nav">{{ $students->links() }}</div>
         @endsection
         @include('sections.records.score-edit-modal')
         @include('layouts.navbar', ['title' => 'CLASS- ' . $section->grade->name.' '. $section->name])

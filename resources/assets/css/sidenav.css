@@ -1,0 +1,614 @@
+
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    /*margin-left: -250px;
+    width: 250px;*/
+    margin-left: -120px;
+    width: 100px;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+   /* background-color: #f1f3f9 !important;*/
+    height: 100%; /* Full-height: remove this if you want "auto" height */    
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+    margin-left: 0px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    margin-left: 100px;
+}
+
+.list-group-item {
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+    padding:0px !important;
+   /* background-color: #f1f3f9 !important;*/
+}
+
+.list-group-item:hover {
+    /*color: #60bb46 !important;*/
+    color: #224d93 !important;
+}
+
+@media (min-width: 990px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+        margin-left: 100px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -300px;
+    }
+}
+
+/*side nav css*/
+
+.sidenav-home{
+    /*
+    background-color: #eeeeee !important;
+    color: #142d57 !important;
+    */
+}
+.sidenav-home:hover{
+    /*
+    background-color: #142d57 !important;
+    color: white !important;
+    */
+}
+/*
+.sidenav-home-active{
+    background-color: #218B82 !important;
+    color: white !important;
+}
+*/
+
+.sidenav-home-active #home_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-class{
+    /*
+    background-color: #eeeeee !important;
+    color: #218B82 !important;
+    */
+}
+.sidenav-class:hover{
+    /*
+    background-color: #218B82 !important;
+    color: white !important;
+    */
+}
+/*
+.sidenav-class-active{
+    background-color: #218B82 !important;
+    color: white !important;
+}
+*/
+.sidenav-class-active #classes_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-library{
+    /*
+    background-color: #eeeeee !important;
+    color: #bd574e !important;
+    */
+}
+.sidenav-library:hover{
+    /*
+    background-color: #bd574e !important;
+    color: white !important;
+    */
+}
+/*
+.sidenav-library-active{
+    background-color: #bd574e !important;
+    color: white !important;
+}
+*/
+.sidenav-library-active #library_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-message{
+    /*
+    background-color: #eeeeee !important;
+    color: #2CCED2 !important;
+    */
+}
+.sidenav-message:hover{
+    /*
+    background-color: #2CCED2 !important;
+    color: white !important;
+    */
+}
+/*
+.sidenav-message-active{
+    background-color: #2CCED2 !important;
+    color: white !important;
+}
+*/
+.sidenav-message-active #message_SNBtn{
+    background-position: -100px 0px;
+}
+
+/*
+.sidenav-message{
+    background-color: #eeeeee !important;
+    color: #2CCED2 !important;
+}
+.sidenav-message:hover{
+    background-color: #2CCED2 !important;
+    color: white !important;
+}
+.sidenav-message-active{
+    background-color: #2CCED2 !important;
+    color: white !important;
+}
+*/
+
+.sidenav-ebook{
+    /*
+    background-color: #eeeeee !important;
+    color: #f15a24 !important;
+    */
+}
+.sidenav-ebook:hover{
+    /*
+    background-color: #f15a24 !important;
+    color: white !important;
+    */
+}
+.sidenav-ebook-active #ebook_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-ebook-active #ebook_SNBtnADMIN{
+    background-position: -100px 0px;
+}
+
+.sidenav-user{
+    /*
+    background-color: #eeeeee !important;
+    color: #046582 !important;
+    */
+}
+.sidenav-user:hover{
+    /*
+    background-color: #046582 !important;
+    color: white !important;
+    */
+}
+.sidenav-user-active #users_SNBtn{
+    background-position: -100px 0px;
+}
+
+
+.sidenav-subject{
+    /*
+    background-color: #eeeeee !important;
+    color: #f39189 !important;
+    */
+}
+.sidenav-subject:hover{
+    /*
+    background-color: #f39189 !important;
+    color: white !important;
+    */
+}
+
+.sidenav-subject-active #subject_SNBtn{
+    background-position: -100px 0px;
+}
+.sidenav-subject-active #subject_SNBtnADMIN{
+    background-position: -100px 0px;
+}
+.sidenav-subject-active #subject_SNBtn2{
+    background-position: -100px 0px;
+}
+
+.sidenav-assessment{
+    /*
+    background-color: #eeeeee !important;
+    color: #3a6351 !important;
+    */
+}
+.sidenav-assessment:hover{
+    /*
+    background-color: #3a6351 !important;
+    color: white !important;
+    */
+}
+
+
+.sidenav-assessment-active #scorm_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-assessment-active #scorm_SNBtn2{
+    background-position: -100px 0px;
+}
+
+
+.sidenav-textbook{
+    /*
+    background-color: #eeeeee !important;
+    color: #f25287 !important;
+    */
+}
+.sidenav-textbook:hover{
+    /*
+    background-color: #f25287 !important;
+    color: white !important;
+    */
+}
+
+.sidenav-textbook-active #textbook_SNBtn{
+    background-position: -100px 0px;
+}
+
+.sidenav-payment{
+    /*
+    background-color: #eeeeee !important;
+    color: #822659 !important;
+    */
+}
+.sidenav-payment:hover{
+    /*
+    background-color: #822659 !important;
+    color: white !important;
+    */
+}
+.sidenav-payment-active #payment_SNBtn{
+    background-position: -100px 0px;
+}
+
+
+.sidenav-activationcode{
+    /*
+    background-color: #eeeeee !important;
+    color: #00917c !important;
+    */
+}
+.sidenav-activationcode:hover{
+    /*
+    background-color: #00917c !important;
+    color: white !important;
+    */
+}
+
+.sidenav-activationcode-active #activation_SNBtn{
+    background-position: -100px 0px;
+}
+
+
+
+.sidenav-forum{
+    background-color: #eeeeee !important;
+    color: #e36bae !important;
+}
+.sidenav-forum:hover{
+    background-color: #e36bae !important;
+    color: white !important;
+}
+.sidenav-forum-active{
+    background-color: #e36bae !important;
+    color: white !important;
+}
+
+.sidenav-chat{
+    background-color: #eeeeee !important;
+    color: #7868e6 !important;
+}
+.sidenav-chat:hover{
+    background-color: #7868e6 !important;
+    color: white !important;
+}
+.sidenav-chat-active{
+    background-color: #7868e6 !important;
+    color: white !important;
+}
+
+.sidenav-guide{
+    /*
+    background-color: #eeeeee !important;
+    color: #cdc733 !important;
+    */
+}
+.sidenav-guide:hover{
+    /*
+    background-color: #cdc733 !important;
+    color: white !important;
+    */
+}
+.sidenav-guide-active #product_SNBtn{
+    background-position: -100px 0px;
+}
+.sidenav-user-active #users_SNBtn_IA, 
+.sidenav-class-active #classes_SNBtn_IA, 
+.sidenav-library-active #library_SNBtn_IA, 
+.sidenav-ebook-active #ebook_SNBtn_IA, 
+.sidenav-subject-active #subject_SNBtn_IA, 
+.sidenav-message-active #message_SNBtn_IA, 
+.sidenav-guide-active #product_SNBtn_IA, 
+.sidenav-guide-active #product_SNBtn2,  
+.sidenav-module-active #module_SNBtn{
+    background-position: -100px 0px;
+}
+
+
+
+.sidenav-center{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.nav-class{
+    color: white !important;
+    background-color: #142d57;
+}
+
+.home-a{
+   color: white !important; 
+}
+.home-a:hover{
+   color: #fb743e !important; 
+}
+
+/*home nav*/
+.navbar {
+  padding:0rem;
+  margin-bottom:2rem;
+}
+
+.dropdown .dropdown-menu {
+  border-radius:0;
+ }
+ 
+ 
+ .orange-pastel{
+    background-color: #ff9955 !important;
+}
+.purple-pastel{
+    background-color: #9575cd !important;
+}
+.green-pastel{
+    background-color: #66cdaa !important;
+}
+
+
+/*sir son css*/
+.SN_Btn {
+  background-color: #E6E7E8;
+  padding: 16px 32px;
+  text-align: center;
+  transition: 0.2s;
+  border:none;
+  width:100px;
+  height:83px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size:200%;
+}
+
+.SN_Btn:hover {
+	background-position: -100px 0px;
+}
+
+
+#home_SNBtn{
+    background-image: url("../images/buttons/homeBtn.png");
+}
+#classes_SNBtn{
+    background-image: url("../images/buttons/classBtn.png");
+}
+#library_SNBtn{
+    background-image: url("../images/buttons/libraryBtn.png");
+}
+#ebook_SNBtn{
+    background-image: url("../images/buttons/ebookBtn.png");
+}
+#subject_SNBtn{
+    background-image: url("../images/buttons/subjectBtn.png");
+}
+#product_SNBtn{
+    background-image: url("../images/buttons/productsBtn_IA-06.png");
+}
+#product_SNBtn2{
+    background-image: url("../images/buttons/productsBtn.png");
+}
+#message_SNBtn{
+    background-image: url("../images/buttons/messagesBtn.png");
+}
+#message_SNBtn2{
+   background-image: url("../images/buttons/messagesBtn2.png");
+}
+#module_SNBtn{
+    background-image: url("../images/buttons/moduleBtn.png");
+}
+
+
+
+#users_SNBtn{
+    background-image: url("../images/buttons/userBtn.png");
+}
+
+#ebook_SNBtnADMIN{
+    background-image: url("../images/buttons/ebookBtn_ADMIN.png");
+}
+#subject_SNBtnADMIN{
+    background-image: url("../images/buttons/subjectBtn_ADMIN.png");
+}
+#subject_SNBtn2{
+    background-image: url("../images/buttons/subjectBtn_ADMIN2.png");
+}
+#scorm_SNBtn{
+    background-image: url("../images/buttons/scormBtn.png");
+}
+#scorm_SNBtn2{
+    background-image: url("../images/buttons/scormBtn2.png");
+}
+#textbook_SNBtn{
+    background-image: url("../images/buttons/textbookBtn.png");
+}
+#payment_SNBtn{
+    background-image: url("../images/buttons/paymentBtn2.png");
+}
+#activation_SNBtn{
+    background-image: url("../images/buttons/activationBtn2.png");
+}
+
+#users_SNBtn_IA{
+    background-image: url("../images/buttons/usersBtn_IA.png");
+}
+
+#classes_SNBtn_IA{
+    background-image: url("../images/buttons/classBtn_IA.png");
+}
+#library_SNBtn_IA{
+    background-image: url("../images/buttons/libraryBtn_IA.png");
+}
+
+#ebook_SNBtn_IA{
+    background-image: url("../images/buttons/ebookBtn_ADMIN.png");
+}
+#subject_SNBtn_IA{
+    background-image: url("../images/buttons/subjectBtn_ADMIN.png");
+}
+#message_SNBtn_IA{
+    background-image: url("../images/buttons/messagesBtn_IA-06.png");
+}
+#product_SNBtn_IA{
+    background-image: url("../images/buttons/productsBtn_IA-06.png");
+}
+
+#module_SNBtn_ADMIN{
+    background-image: url("../images/buttons/moduleBtn_ADMIN.png");
+}
+
+#myedgeLogo{
+    width:150px;
+}
+
+
+#brandingLogo{
+    visibility:hidden;
+}
+
+
+.ebookTitle{
+    height:40px;
+    vertical-align:middle;
+    padding:0px 10px;
+}
+
+
+.ebookTitle h6{
+    vertical-align:middle;
+    font-size:120% !important;
+}
+
+.accntNameHolder{
+	display: inline-table;
+	position: relative;
+    margin-left:5px;
+    margin-right:25px;
+}
+
+.accntNameHolder .mfrac {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: left !important;
+}
+.accntNameHolder .aHolder > span {
+    display: block;
+	 text-align: left !important;
+}
+
+.accntName{
+    color:#FFFFFF;
+    font-weight:bold;
+}
+.accntPosition {
+	 margin-top:-5px;
+	 font-size:12px;
+	 color:#FFFFFF;
+}
+
+
+/* dashboard*/
+    .dashboard-hover {
+        width:291px;
+        height:230px;
+        background-position: 0 0;
+        
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+    
+    .dashboard-hover:hover {
+    	background-position: -291.5px 0px;
+    }
+    
+    
+    #classes_DB{
+        background-image: url("../images/dashboard/dash_classesBtn.png");
+    }
+    
+    #library_DB{
+        background-image: url("../images/dashboard/dash_libraryBtn.png");
+    }
+    #ebook_DB{
+        background-image: url("../images/dashboard/dash_ebookBtn.png");
+    }
+    
+    #products_DB{
+        background-image: url("../images/dashboard/dash_subjectBtn.png");
+    }
+    
+    .headerTable{
+        background-color:#0074BC;
+        width:100%;
+        border-radius: 25px 25px 0px 0px;
+    }
+	
+
+/**/
+/*html, body{ */
+/*    font-family: "Roboto-Regular" !important;*/
+/*}*/
+/* Medium devices (tablets, 768px and up) 
+The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  border-radius:0;
+ }
+}

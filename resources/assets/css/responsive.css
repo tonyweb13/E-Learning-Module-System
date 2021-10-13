@@ -1,0 +1,120 @@
+/* RESPONSIVE CSS HERE */
+
+@media (min-width: 992px) {
+  #navbarCollapse {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .mobile-only {
+    display: none;
+  }
+}
+@media (max-width: 1500px) {
+  body {
+    font-size: 13px;
+  }
+  .lower-nav .navbar-nav > li:not(:last-child) {
+    margin-right: 1rem;
+  }
+  header #navbarCollapse .navbar-nav .nav-link {
+    font-size: 12px;
+    line-height: 30px;
+    padding: 0.5rem 1.5rem;
+    color:blue !important;
+  }
+  header #navbarCollapse .navbar-nav .active .nav-link {
+    font-size: 18px;
+    color:blue !important;
+  }
+  .lower-nav .dropdown-toggle {
+    font-size: 16px;
+  }
+  .lower-nav input[type="submit"] {
+    font-size: 16px;
+    height: 32px;
+  }
+}
+@media (max-width: 991px) {
+  .upper-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  header .lower-nav {
+    display: none;
+  }
+  header .navbar {
+    padding: 0;
+  }
+  header .navbar-brand {
+    margin-left: 2rem;
+    padding: 1rem 0;
+    max-width: 180px;
+  }
+  header #navbarCollapse .navbar-nav {
+    text-align: center;
+    color:blue !important;
+  }
+  header #navbarCollapse .navbar-nav .nav-link {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0.5rem 1.5rem;
+    color:blue !important;    
+  }
+  header #navbarCollapse .navbar-nav .active .nav-link {
+    font-size: 18px;
+    color:blue !important;
+  }
+  .lower-nav li {
+    width: 100%;
+    text-align: center;
+    margin-right: 0 !important;
+  }
+  .lower-nav li:not(:last-child) {
+    margin-bottom: 0.5rem !important;
+  }
+  .lower-nav li .dropdown-toggle {
+    max-width: 100%;
+    width: 100%;
+  }
+  .lower-nav
+    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%;
+  }
+  #header-search .close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    background: #fff;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    opacity: 1;
+  }
+}
+@media (max-width: 500px) {
+  header .navbar {
+    padding: 0;
+    color:blue !important;
+  }
+  header .navbar-brand {
+    margin-left: 1rem;
+    max-width: 140px;
+    margin-right: 0;
+  }
+  header .upper-nav {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+  }
+  header .navbar button {
+    margin: 0 0.1rem;
+  }
+}
+

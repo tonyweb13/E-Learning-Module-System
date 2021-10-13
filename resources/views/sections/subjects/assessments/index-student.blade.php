@@ -65,6 +65,9 @@
                                                     <a href="/sections/subjects/assessment/answer/{{$section->id}}/{{$subject->id}}/{{$result->id}}" data-toggle="tooltip" title="Answer Assessment" class="action-btn btn btn-primary text-light mb-1">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
+                                                    <a href="/sections/subjects/assessment/answer2/{{$section->id}}/{{$subject->id}}/{{$result->id}}" data-toggle="tooltip" title="Under Development" class="action-btn btn btn-primary text-light mb-1" style="background-color:#ccff77 !important;">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
                                                 @else
                                                     <a href="/sections/subjects/assessment/view/submitted/assessement/{{$section->id}}/{{$subject->id}}/{{Auth::user()->id}}/{{$result->id}}" data-toggle="tooltip" title="Review Answers" class="action-btn btn orange-pastel text-light mb-1">
                                                         <i class="fa fa-eye"></i>
