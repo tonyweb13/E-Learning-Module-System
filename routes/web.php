@@ -561,10 +561,3 @@ Route::get('/createfolder', 'MainHomeController@createMyDriveFolder');
 Route::get('/sampleexternal', 'MainHomeController@sampleexternal');
 
 Route::post('/test/save', 'MainHomeController@testsaveProfileModuleSample');
-
-Route::get('/clear-cache', function() {
-    Artisan::call('optimize:clear');
-    Artisan::call('event:clear');
-    Artisan::call('queue:flush');
-    return "Clear Successfully";
-});
