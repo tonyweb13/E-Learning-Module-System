@@ -17,15 +17,15 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row pl-3 pr-3">
-                                <div class="col-md-4 p-1">
+                                <div class="col-md-3 p-1">
                                   <label>Title</label>
                                   <input type="text" name="title" id="title" class="form-control geo-border-primary" required  placeholder="Assessent Title" value="{{$data->name ?? ''}}">
                                 </div>
-                                <div class="col-md-4 p-1">
+                                <div class="col-md-3 p-1">
                                     <label>Topic</label>
                                     <input type="text" name="topic" id="topic" class="form-control geo-border-primary" required  placeholder="Assessent Topic" value="{{$data->topic ?? ''}}">
                                 </div>
-                                <div class="col-md-4 p-1">
+                                <div class="col-md-3 p-1">
                                     <label>Mode</label>
                                     <select class="form-control" id="mode" name="mode" required>
                                         <option>Select Assessment Mode</option>
@@ -33,25 +33,36 @@
                                         <option value="graded">Graded</option>
                                     </select>
                                 </div>
-                            </div>
-                            <br>
-                            <div class="row pl-3 pr-3">
-                                <div class="col-md-4 p-1">
+                                <div class="col-md-3 p-1">
                                     <label>Category</label>
                                     <select class="form-control" id="scale-id" name="scale_id">
                                         <option>Select Category</option>
                                     </select>
                                   
                                 </div>
+                            </div>
+                            <br>
+                            <div class="row pl-3 pr-3">
+                                
         
-                                <div class="col-md-4 p-1">
+                                <div class="col-md-3 p-1">
                                     <label>Start Date</label>
                                     <input type="date" name="start_date" id="start-date" class="form-control geo-border-primary" required  value="{{$data->name ?? ''}}">
                                 </div>
+                                
+                                <div class="col-md-3 p-1">
+                                    <label>Start Time</label>
+                                    <input type="time" name="start_time" id="start-time" class="form-control geo-border-primary" required  value="{{$data->name ?? ''}}">
+                                </div>
         
-                                <div class="col-md-4 p-1">
-                                    <label>End Date</label>
+                                <div class="col-md-3 p-1">
+                                    <label>End Date and Time</label>
                                     <input type="date" name="end_date" id="end-date" class="form-control geo-border-primary" required  value="{{$data->name ?? ''}}">
+                                </div>
+                                
+                                <div class="col-md-3 p-1">
+                                    <label>End Time</label>
+                                    <input type="time" name="end_time" id="end-time" class="form-control geo-border-primary" required  value="{{$data->name ?? ''}}">
                                 </div>
                             </div>
                             <br>

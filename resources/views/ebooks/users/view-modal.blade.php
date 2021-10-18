@@ -15,7 +15,7 @@
                   <div class="col-md-12">
                     <div class="row pl-3 pr-3">
                         <input type="hidden" id="appurl2"   value="{{env('APP_URL')}}">
-                       <iframe src="#" id="tb-frame" style="width: 100%; height: 650px;" controls controlsList="nodownload"></iframe>
+                        <iframe  id="tb-frame" src ="#" width="100%" height="650px;" allowfullscreen webkitallowfullscreen></iframe>
                     </div>
                   </div>
                 </div>

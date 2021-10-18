@@ -39,6 +39,7 @@
                                     <th>Activity</th>
                                     <th>Activity Id</th>
                                     <th>Activity Name</th>
+                                    <th>User Ip</th>
                                     <th>Date Modified</th>
                                 </tr>
                                 @if(count($results) > 0)
@@ -49,12 +50,13 @@
                                             <td>{{$result->activity ?? ''}}</td>
                                             <td>{{$result->activity_id ?? ''}}</td>
                                             <td>{{$result->activity_name ?? ''}}</td>
+                                            <td>{{$result->ip ?? ''}}</td>
                                             <td>{{date("F j, Y, g:i a", strtotime($result->date_created))}}</td>
                                         </tr>
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td class="text-center" colspan="6">No Activity History Found</td>
+                                        <td class="text-center" colspan="7">No Activity History Found</td>
                                     </tr>
                                 @endif
                             </table>

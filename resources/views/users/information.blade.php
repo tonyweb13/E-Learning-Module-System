@@ -42,6 +42,9 @@
                 @elseif($data->status == 0)
                     <option value="1">Active</option>
                     <option value="0" selected>In Active</option>
+                @else
+                    <option value="0">In Active</option>
+                    <option value="1">Active</option>
                 @endif
             @else
                 <option value="1">Active</option>

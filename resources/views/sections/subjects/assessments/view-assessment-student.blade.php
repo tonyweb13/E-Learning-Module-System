@@ -71,118 +71,129 @@
                                 </h4>
                                 <br>
                                 <?php $aessay= 0 ?>
-                                @foreach($result->assessmentQuestion as $key=> $data)
-                                    @if($data->question)
-                                         <div class="col-md-12" style="background-color: white;">
-                                            <span style="display: inline-flex;padding:20px;">{{$key + 1}}).&emsp;
-                                                <div class="col-md-12">
-                                                    <?php   
-                                                        echo $data->question->question ?? ''; 
-                                                    ?>
-                                                </div>
-                                            </span>
-                                            <br>
-                                            <input type="hidden" name="question_id[]" value="{{$data->question->id ?? ''}}">
-                                            @if($data->question->questionType->name == 'True or False')
-                                                
-                                                <div style="padding-left:70px;">
-                                                    <div class="roles">
-                                                        @foreach($data->question->answer as $k=> $answer)
-                                                            <input class="radiotf" type="checkbox" name="answer[]" value="{{$answer->answer ?? ''}}" id="answer-{{$key}}" required="required">
-                                                            <label class="role" >{{strtoupper($answer->answer)}}</label>
-                                                        @endforeach
+                                @if($is_done != 2)
+                                    @foreach($result->assessmentQuestion as $key=> $data)
+                                        @if($data->question)
+                                             <div class="col-md-12" style="background-color: white;">
+                                                <span style="display: inline-flex;padding:20px;">{{$key + 1}}).&emsp;
+                                                    <div class="col-md-12">
+                                                        <?php   
+                                                            echo $data->question->question ?? ''; 
+                                                        ?>
                                                     </div>
-                                                </div>
-                                            @elseif($data->question->questionType->name == 'Multiple Choice')
-                                            
-                                                <div style="padding-left:70px;">
-                                                    <div class="roles">
-                                                        @foreach($data->question->answer as $k=> $answer)
-                                                            <input class="radiomc"  type="checkbox" name="answer[]" value="{{$answer->answer ?? ''}}" id="answer-{{$key}}" required="required">
-                                                            @if($answer->answer)
-                                                                @if (str_starts_with($answer->answer, 'https://') == true)
-                                                                    <label class="role" >
-                                                                        <img id="preview-{{$key}}" src="{{$answer->answer ?? ''}}" onerror="this.src='/images/no_image.png'" alt="your image" width="200" height="200"/>
-                                                                    </label>
+                                                </span>
+                                                <br>
+                                                <input type="hidden" name="question_id[]" value="{{$data->question->id ?? ''}}">
+                                                @if($data->question->questionType->name == 'True or False')
+                                                    
+                                                    <div style="padding-left:70px;">
+                                                        <div class="roles">
+                                                            @foreach($data->question->answer as $k=> $answer)
+                                                                <input class="radiotf" type="checkbox" name="answer[]" value="{{$answer->answer ?? ''}}" id="answer-{{$key}}" required="required">
+                                                                <label class="role" >{{strtoupper($answer->answer)}}</label>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                @elseif($data->question->questionType->name == 'Multiple Choice')
+                                                
+                                                    <div style="padding-left:70px;">
+                                                        <div class="roles">
+                                                            @foreach($data->question->answer as $k=> $answer)
+                                                                <input class="radiomc"  type="checkbox" name="answer[]" value="{{$answer->answer ?? ''}}" id="answer-{{$key}}" required="required">
+                                                                @if($answer->answer)
+                                                                    @if (str_starts_with($answer->answer, 'https://') == true)
+                                                                        <label class="role" >
+                                                                            <img id="preview-{{$key}}" src="{{$answer->answer ?? ''}}" onerror="this.src='/images/no_image.png'" alt="your image" width="200" height="200"/>
+                                                                        </label>
+                                                                    @else
+                                                                        <label class="role" >{{$answer->answer}}</label>
+                                                                    @endif
                                                                 @else
                                                                     <label class="role" >{{$answer->answer}}</label>
                                                                 @endif
-                                                            @else
-                                                                <label class="role" >{{$answer->answer}}</label>
-                                                            @endif
-                                                            <br>
-                                                        @endforeach
+                                                                <br>
+                                                            @endforeach
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            
-                                            @elseif($data->question->questionType->name == 'Identification')
-                                              
-                                                <input type="text" name="answer[]" class="form-control geo-border-primary" placeholder="Type your Answer here..." required>
                                                 
-                                            
-                                            @elseif($data->question->questionType->name == 'Essay/ Free Form')
-                                                
-                                                <input type="hidden" name="answer[]" id="essay-{{$aessay}}" class="form-control geo-border-primary" >
-                                                @include('sections.subjects.assessments.essay-authoring-tool')
-                                                <?php $aessay= $aessay + 1 ?>
-                                                <!--<textarea  class="form-control geo-border-primary" name="answer[]" placeholder="Enter you answer here..." style="height: 150px;" required></textarea>-->
-                                                
-                                            @elseif($data->question->questionType->name == 'Matching Type')
-                                            
-                                                <?php
-                                                    foreach($data->question->answer as $k=> $answer){
-                                                        
-                                                        $colb[]=$answer->partner ?? '';
-                                                    }
+                                                @elseif($data->question->questionType->name == 'Identification')
+                                                  
+                                                    <input type="text" name="answer[]" class="form-control geo-border-primary" placeholder="Type your Answer here..." required>
                                                     
-                                                    shuffle($colb);
-                                                ?>
-                                                <div class="col-md-12">
-                                                    <!--display data-->
-                                                    <table class="table  col-md-12">
-                                                        <th>Column A</th>
-                                                        <th>Column B</th>
-                                                        <th>Answer</th>
-                                                        <input type="hidden" name="answer[]" class="form-control geo-border-primary" placeholder="Type your Answer here..." >
+                                                
+                                                @elseif($data->question->questionType->name == 'Essay/ Free Form')
+                                                    
+                                                    <input type="hidden" name="answer[]" id="essay-{{$aessay}}" class="form-control geo-border-primary" >
+                                                    @include('sections.subjects.assessments.essay-authoring-tool')
+                                                    <?php $aessay= $aessay + 1 ?>
+                                                    <!--<textarea  class="form-control geo-border-primary" name="answer[]" placeholder="Enter you answer here..." style="height: 150px;" required></textarea>-->
+                                                    
+                                                @elseif($data->question->questionType->name == 'Matching Type')
+                                                
+                                                    <?php
+                                                        foreach($data->question->answer as $k=> $answer){
+                                                            
+                                                            $colb[]=$answer->partner ?? '';
+                                                        }
                                                         
-                                                        @foreach($data->question->answer as $k=> $answer)
-                                                            <tr>
-                                                                <td>
-                                                                    <input type="text" class="form-control geo-border-primary" readonly value="{{$answer->answer ?? ''}}">
-                                                                </td>
-                                                                <td>
-                                                                    <input type="text" class="form-control geo-border-primary" readonly value="{{$colb[$k] ?? ''}}">
-                                                                </td>
-                                                                <input type="hidden" name="matchinganswerid[]" class="form-control geo-border-primary" readonly value="{{$answer->id ?? ''}}">
-                                                                <td>
-                                                                    <select name="matchinganswer[]" class="form-control geo-border-primary" required>
-                                                                        <option>Select Answer From Coloum B</option>
-                                                                        @foreach($colb as $pat)
-                                                                            <option value="{{$pat ?? ''}}">{{$pat ?? ''}}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </table>
-                                                </div>
-                                            @endif
+                                                        shuffle($colb);
+                                                    ?>
+                                                    <div class="col-md-12">
+                                                        <!--display data-->
+                                                        <table class="table  col-md-12">
+                                                            <th>Column A</th>
+                                                            <th>Column B</th>
+                                                            <th>Answer</th>
+                                                            <input type="hidden" name="answer[]" class="form-control geo-border-primary" placeholder="Type your Answer here..." >
+                                                            
+                                                            @foreach($data->question->answer as $k=> $answer)
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="text" class="form-control geo-border-primary" readonly value="{{$answer->answer ?? ''}}">
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" class="form-control geo-border-primary" readonly value="{{$colb[$k] ?? ''}}">
+                                                                    </td>
+                                                                    <input type="hidden" name="matchinganswerid[]" class="form-control geo-border-primary" readonly value="{{$answer->id ?? ''}}">
+                                                                    <td>
+                                                                        <select name="matchinganswer[]" class="form-control geo-border-primary" required>
+                                                                            <option>Select Answer From Coloum B</option>
+                                                                            @foreach($colb as $pat)
+                                                                                <option value="{{$pat ?? ''}}">{{$pat ?? ''}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </table>
+                                                    </div>
+                                                @endif
+                                                <br>
+                                                <p class="text-right">
+                                                    For {{$data->question->point ?? '0'}} point/s
+                                                    <input type="hidden" name="qpoint[]" class="form-control geo-border-primary" readonly value="{{$data->question->point ?? 0}}">
+                                                </p>
+                                            </div>
                                             <br>
-                                            <p class="text-right">
-                                                For {{$data->question->point ?? '0'}} point/s
-                                                <input type="hidden" name="qpoint[]" class="form-control geo-border-primary" readonly value="{{$data->question->point ?? 0}}">
-                                            </p>
-                                        </div>
-                                        <br>
-                                    @endif
-                                @endforeach
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <h4>Sorry the Assessment is not available right now. Please try again on {{date("M j, Y", strtotime($result->start_date))}}, {{date("h:i a", strtotime($result->start_time))}}, Thank You.</h4>
+                                @endif
                                 <br>
                                 @if($result->mode == 'graded')
                                     @if($result->assessmentStudent[0]->status == 'To be completed')
-                                        <div class="right" id="graded-btn">
-                                            <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>
-                                            <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>
-                                        </div>
+                                        @if($is_done == 0)
+                                            <div class="right" id="graded-btn">
+                                                <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>
+                                                <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>
+                                            </div>
+                                        @elseif($is_done == 2)
+                                            <h5 class="right" style="color:red;">You may start taking your assessment on {{date("M j, Y", strtotime($result->start_date))}}, {{date("h:i a", strtotime($result->start_time))}}.</h5>
+                                        @else
+                                            <h5 class="right" style="color:red;">Sorry, you can no longer answer this assessment. The assessment has already expired. Thank you.</h5>
+                                        @endif
+                                        
                                     @endif
                                 @else
                                     <div class="right">

@@ -14,33 +14,7 @@
 </head>
 <body>
 <!--- HEADER -->
-   	<!--<div  class="container" style='border-radius:20px; background-color:#FFFFFF; border:2px red solid; z-index:9; position: fixed;top: 25%;left: 10%;margin-top: -25px;margin-left: -10px;width:80%;min-width: 350px;padding:40px 20px 60px 20px;'>-->
-    <!--	<table>-->
-    <!--		<tr>-->
-    <!--			<td style='vertical-align:text-top;'>-->
-    <!--				<img class="text-center" src='/home-assests/images/notice_icon.png' style='width:50px; margin-right:10px;'/>-->
-    <!--			</td>-->
-    <!--			<td>-->
-    <!--				<h2 class="text-center" style='color:#e00d0d;'>-->
-    <!--					Website Advisory-->
-    <!--				</h2>-->
-    					
-    <!--			</td>-->
-    <!--		</tr>-->
-    <!--	</table>-->
-    <!--	<br/>-->
-    <!--	<hr/>-->
-    <!--	<br/>-->
-    <!--	<h4 class="text-center">-->
-    <!--	    The website is currently not available.-->
-    <!--		Due to server upgrade, there is a change in the URL of MyEDGE. Please access the website through -->
-    <!--		<a href='https://myedgelearning.abivaelearning.com/'>https://myedgelearning.abivaelearning.com/</a> starting September 6 2021.-->
-    <!--	</h4>-->
-    <!--	<h4 class="text-center">-->
-    <!--        We apologize for the inconvenience.-->
-    <!--	</h4>-->
-    			
-    <!--</div>-->
+   	
    	<!--
    	<div  class="container" style='border-radius:20px; 
 								background-color:#FFFFFF; 
@@ -121,12 +95,12 @@
 			</li>
 			<li class="nav-item" style='width:20px; height:20px;'>
 			</li>
-			<!--<li class="nav-item" >-->
-			<!--  <a class="nav-link" href="/login" id='loginBtn'>Login</a>-->
-			<!--</li>-->
 			<li class="nav-item" >
-			  <a class="nav-link" href="#" onclick="alert('SORRY BUT YOU CAN LOGIN RIGHT NOW BEACUSE OF SERVER  MAINTENANCE. THANK YOU')" id='loginBtn'>Login</a>
+			  <a class="nav-link" href="/login" id='loginBtn'>Login</a>
 			</li>
+			<!--<li class="nav-item" >-->
+			<!--  <a class="nav-link" href="#" onclick="alert('SORRY BUT YOU CAN LOGIN RIGHT NOW BEACUSE OF SERVER  MAINTENANCE. THANK YOU')" id='loginBtn'>Login</a>-->
+			<!--</li>-->
 		  </ul>
 		</div>
 	  </div>
@@ -134,25 +108,7 @@
 
 <!-- HEADER END --->
 	    
-	<!--	<div class="container" style="border-radius:20px 0px 0px 20px; background-color:white; border:2px red solid; border-right:0px !important; right:0px; width:350px; float:right !important; position:fixed; bottom:20px; padding:20px; z-index:9;">-->
-	<!--		<table>-->
-	<!--		<tbody><tr>-->
-	<!--			<td style="vertical-align:text-top;">-->
-	<!--				<img src="/home-assests/images/notice_icon.png" style="width:50px; margin-right:10px;">-->
-	<!--			</td>-->
-	<!--			<td>-->
-	<!--				<h3 style="color:#e00d0d;">-->
-	<!--			 Website Advisory-->
-	<!--		</h3>-->
-	<!--		<p style="font-size:80%;">-->
-				
-	<!--MyEDGE will be inaccessible from 12 p.m. of August 26 to 11:59 p.m. of September 5, 2021 as we conduct maintenance activities. We apologize for the inconvenience.-->
-	<!--		</p>-->
-	<!--			</td>-->
-	<!--		</tr>-->
-	<!--		</tbody></table>-->
-			
-	<!--	</div>-->
+		
 		
 		<div class="container marketing" id='homePage'>
 		

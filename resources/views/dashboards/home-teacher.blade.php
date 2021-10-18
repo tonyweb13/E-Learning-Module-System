@@ -153,11 +153,10 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="usersta" value="{{Auth::user()->is_deleted}}">
-    <input type="hidden" id="usersta2" value="{{Auth::user()->status}}">
+    
+    
     @endsection
     @include('layouts.navbar', ['title' => 'MYEDGE LEARNING'])
-    @include('dashboards.spam-modal')
     <script type="text/javascript" src="/js/dashboard/teacher.js"></script>
     <script type="text/javascript" src="/js/alert.js"></script>
 </body>

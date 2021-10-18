@@ -57,6 +57,15 @@
                                                 <a href="/users/students/activity/{{$result->id}}" data-toggle="tooltip" title="Activity Logs" class="action-btn btn green-pastel text-light mb-1">
                                                     <i class="fas fa-chalkboard-teacher"></i>
                                                 </a>
+                                                @if($result->is_suspend == 0)
+                                                    <button type="button" value="{{$result->id}}" onclick="suspendData(this.value)" data-toggle="tooltip" title="Suspend User" class="action-btn btn btn-secondary text-light">
+                                                        <i class="fas fa-minus-circle"></i>
+                                                    </button>
+                                                @else
+                                                    <button type="button" value="{{$result->id}}" onclick="unSuspendData(this.value)" data-toggle="tooltip" title="Unsuspend User" class="action-btn btn btn-warning text-light">
+                                                        <i class="fas fa-minus-circle"></i>
+                                                    </button>
+                                                @endif
                                                 <button type="button" value="{{$result->id}}" onclick="deleteData(this.value)" data-toggle="tooltip" title="Delete User" class="action-btn btn btn-danger text-light delete-btn mb-1">
                                                     <i class="fa fa-trash"></i>
                                                 </button>

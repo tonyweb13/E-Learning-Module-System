@@ -36,6 +36,7 @@
                 </button>
             </div>
         </div>
+        
         <div class="row" id="grid-view">
             <div class="col-md-12">
                 <div class="row pl-3 pr-5">

@@ -69,7 +69,8 @@
                     </div>
                     <div class="col-s-2" style='text-align:right !important;'>
                         @if (Route::has('register'))
-                            <a class="btn btn-link" href="{{ route('register') }}" style="color: #ccff77 !important; margin-left: 105px; text-align:right; font-size: 16px !important;">Sign Up</a>
+                            <a class="btn btn-link" onclick="alert('SORRY BUT YOU CAN REGISTER RIGHT NOW BEACUSE OF SERVER  MAINTENANCE. THANK YOU')" style="color: #ccff77 !important; margin-left: 105px; text-align:right; font-size: 16px !important;">Sign Up</a>
+                            <!--<a class="btn btn-link" href="{{ route('register') }}" style="color: #ccff77 !important; margin-left: 105px; text-align:right; font-size: 16px !important;">Sign Up</a>-->
                         @endif
                     </div>
                 </div>
