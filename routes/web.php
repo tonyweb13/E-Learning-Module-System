@@ -242,6 +242,8 @@ Route::get('/ebooks/assign/teacher/{id}', 'EbooksController@assignEbookTeacher')
 
 Route::post('/ebooks/assign/users/store', 'EbooksController@assignEbook');
 
+Route::post('/ebooks/unassign/users/store', 'EbooksController@unAssignEbook');
+
 Route::post('/get/view/tg', 'EbooksController@getTG');
 
 Route::post('/get/view/ebook', 'EbooksController@getSingleEbook');

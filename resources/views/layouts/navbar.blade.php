@@ -163,7 +163,7 @@
                     </li>
                 </ul>
                 <span class="my-account-2 my-lg-0 pointer" data-toggle="popover" id="my-account">
-                    <img src="{{Auth::user()->image ?? '/images/default.png'}}" onerror="this.src='/images/logo/myedge_logo-03.png'" class="profile-img" style="width:40px;height:40px;;">
+                    <img src="{{Auth::user()->image ?? '/images/default.png'}}" onerror="this.src='/images/default.png'" class="profile-img" style="width:40px;height:40px;;">
                     <span class='accntNameHolder'>
                         <span class='aHolder'>
                             <span class='accntName'>{{Auth::user()->name ?? 'Welcome user!'}}</span>

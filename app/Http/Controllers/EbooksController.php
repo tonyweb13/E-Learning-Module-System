@@ -278,6 +278,11 @@ class EbooksController extends Controller
                              ->where('ebook_id',$id)
                              ->where('is_deleted',0)
                              ->paginate(10);
+        $results->appends([
+            'keyword' => $keyword,
+            'search_pagination' => 10
+        ]);
+        
         //return $results
         return view('ebooks.assigns.teachers.index',compact('id','keyword','results'));
     }
@@ -285,7 +290,7 @@ class EbooksController extends Controller
     public function assignEbookTeacher(Request $request,$id){
         //currently display all user of ebook no fiter nut user type but will revise this by teacher only
         $keyword = $request->keyword;
-        $users=AsignedEbook::where('ebook_id',$id)->get();
+        $users=AsignedEbook::where('ebook_id',$id)->where('is_deleted',0)->get();
         $userids=[];
         foreach($users as $user){
           $userids[]=$user->user_id;  
@@ -304,7 +309,11 @@ class EbooksController extends Controller
                      ->where('is_deleted',0)
                      ->whereIn('user_type_id',['3','4','5'])
                      ->paginate(10);
-       // return $results;
+        $results->appends([
+            'keyword' => $keyword,
+            'search_pagination' => 10
+        ]);
+        
         return view('ebooks.assigns.teachers.create',compact('id','keyword','results'));
     }
     
@@ -315,13 +324,48 @@ class EbooksController extends Controller
             for ($i=0; $i < count(request('userid')) ; $i++) { 
                 
                 $ebook=Ebook::where('id',request('ebook_id'))->first();
-                AsignedEbook::create([
+                $check = AsignedEbook::where('ebook_id',request('ebook_id'))
+                                     ->where('user_id',request('userid')[$i])
+                                     ->first();
+                            
+                if($check){
+                    
+                    AsignedEbook::where('ebook_id',request('ebook_id'))
+                            ->where('user_id',request('userid')[$i])
+                            ->update([
+                                            'is_deleted' => 0
+                                     ]);
+                                     
+                }else{
+                    
+                    AsignedEbook::create([
                                             'ebook_id'        =>request('ebook_id'),
                                             'ebook_title'     =>$ebook->ebook_title,
                                             'user_id'         =>request('userid')[$i],
                                             'added_by'        =>request('current_user'),
                                             'is_deleted'      =>0,
-                                        ]);   
+                                        ]);
+                                        
+                }   
+            }
+        });
+        
+        // Return the transaction response.
+        $response = array('status' => (!$has_exceptions) ? 'saved' : 'not_saved');
+        return response()->json($response);
+    }
+    
+    public function unAssignEbook(Request $request){
+
+        $has_exceptions = DB::transaction(function() use($request) {
+
+            for ($i=0; $i < count(request('userid')) ; $i++) { 
+                
+                AsignedEbook::where('ebook_id',request('ebook_id'))
+                            ->where('user_id',request('userid')[$i])
+                            ->update([
+                                            'is_deleted' => 1
+                                     ]);  
             }
         });
         
