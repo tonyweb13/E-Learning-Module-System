@@ -424,6 +424,8 @@ Route::get('/sections/records/student/view2/{sectionid}', 'SectionsController@re
 
 Route::get('sections/subjects/report/{sectionid}/{id}', 'SectionsController@recordSubject');
 
+Route::get('sections/subjects/report/export/{sectionid}/{id}', 'SectionsController@reportExport');
+
 Route::post('/sections/subjects/report/get-submitted-report', 'SectionsController@assessmentRecord');
 
 Route::post('/sections/subjects/report/edit-grade/store', 'SectionsController@editGradeStore');
