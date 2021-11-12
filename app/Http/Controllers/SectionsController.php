@@ -2191,7 +2191,6 @@ class SectionsController extends Controller
                                         ])
                                         ->where('id',$id)
                                         ->first();
-        // dd($subject);
         //get subject scale
         $scales=SectionSubjectScale::with([     'subjectAssessment'=>function($q){
                                                     $q->where('mode', 'graded');
@@ -2202,24 +2201,17 @@ class SectionsController extends Controller
                                                 'subjectAssessment.assessmentStudent.submittedReportAssessment'=>function($q){
                                                     $q->where('is_deleted',0);
                                                 }
-                                                // 'sectionSubject.section.sectionStudent'=>function($q){
-                                                //     $q->orderBy('student_id');
-                                                // },
-                                                //'sectionSubject.section.sectionStudent.user.submittedAssessment'
-
                                           ])
                                     ->where('section_subject_id',$id)
                                     ->where('is_deleted',0)
                                     ->orderBy('id')
                                     ->get();
 
-        // $students=SectionStudent::where('section_id',$section_id)->get();
         $students=SectionStudent::where('section_id',$section_id)->paginate(10);
 
         $students->appends([
             'search_pagination' => 10
         ]);
-        // dd($students);
 
         $results=[];
         $studresult=[];
@@ -2229,9 +2221,27 @@ class SectionsController extends Controller
 
         $gtotal=0;
         $average=0;
+
         foreach($students as $student){
             foreach($scales as $scale){
                 foreach($scale->subjectAssessment as $assessment){
+
+                /* Get Duplicates question id */
+                $submittedReportAssessments = SubmittedReportAssessment::where('subject_assessment_id', $assessment->id)
+                ->where('added_by', $student->student_id)
+                ->groupBy('question_id')
+                ->havingRaw('COUNT(question_id) > 1')
+                ->get();
+
+                /* Remove duplicates */
+                echo count($submittedReportAssessments);
+                foreach($submittedReportAssessments as $submittedReportAssess) {
+                   SubmittedReportAssessment::where('subject_assessment_id', $submittedReportAssess->subject_assessment_id)
+                    ->where('added_by', $submittedReportAssess->added_by)
+                    ->where('question_id', $submittedReportAssess->question_id)
+                    ->where('id', $submittedReportAssess->id)
+                    ->update(['is_deleted'  => 1]);
+                }
 
                     //get all submitted assessment
                     $score=AssessmentStudent::with([
@@ -2240,6 +2250,7 @@ class SectionsController extends Controller
                                                         },
                                                         'submittedReportAssessment'=>function($q){
                                                             $q->where('is_deleted',0);
+                                                            // $q->distinct('question_id');
                                                         },
                                                         'subjectAssessment'
                                                    ])
@@ -2253,6 +2264,7 @@ class SectionsController extends Controller
                                                 $q->where('is_deleted', 0);
                                             })
                                             ->first();
+
                     //check mastery
                     $mastery=sectionAssessmentScale::where('section_subject_id',$id)
                                                   ->where('scale_from','<=',$score->mastery_score2 ?? 0)
@@ -2267,6 +2279,7 @@ class SectionsController extends Controller
                         }
                     }
                 }
+
                 $studresult[]=$assessmentresult;
                 $assessmentresult=[];
                 if($ototal == 0){
@@ -2279,6 +2292,7 @@ class SectionsController extends Controller
                 $stotal=0;
                 $ototal=0;
             }
+
             $finalmastery=sectionAssessmentScale::where('section_subject_id',$id)
                                                   ->where('scale_from','<=',$average ?? 0)
                                                   ->where('scale_to','>=',$average ?? 0)
@@ -2289,7 +2303,6 @@ class SectionsController extends Controller
         }
 
         return view('sections.records.subject-report',compact('scales','section','results','subject','students'));
-
     }
 
     public function assessmentRecord(){
