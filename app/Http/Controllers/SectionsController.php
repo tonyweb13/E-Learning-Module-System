@@ -2234,15 +2234,15 @@ class SectionsController extends Controller
                 ->get();
 
                 /* Remove duplicates */
-                echo count($submittedReportAssessments);
-                foreach($submittedReportAssessments as $submittedReportAssess) {
-                   SubmittedReportAssessment::where('subject_assessment_id', $submittedReportAssess->subject_assessment_id)
-                    ->where('added_by', $submittedReportAssess->added_by)
-                    ->where('question_id', $submittedReportAssess->question_id)
-                    ->where('id', $submittedReportAssess->id)
-                    ->update(['is_deleted'  => 1]);
+                if (count($submittedReportAssessments) > 0) {
+                    foreach($submittedReportAssessments as $submittedReportAssess) {
+                        SubmittedReportAssessment::where('subject_assessment_id', $submittedReportAssess->subject_assessment_id)
+                         ->where('added_by', $submittedReportAssess->added_by)
+                         ->where('question_id', $submittedReportAssess->question_id)
+                         ->where('id', $submittedReportAssess->id)
+                         ->update(['is_deleted'  => 1]);
+                     }
                 }
-
                     //get all submitted assessment
                     $score=AssessmentStudent::with([
                                                         'submittedAssessment'=>function($q){
