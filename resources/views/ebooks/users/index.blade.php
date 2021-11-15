@@ -86,11 +86,9 @@
 
                                     </div>
 
-                                    <!--<h5 class="text-center" style="color: white;">{{$result->ebook->ebook_title ?? ''}}</h5>-->
+                                    <h5 class="text-center" style="color: white;">{{$result->ebook->ebook_title ?? ''}}</h5>
 
-                                    <!-- <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" onerror="this.src='/images/no_image.png'" width="300px" height="300px;" class="geo-border-primary border mt-2"> -->
-
-                                    <img src="/images/no_image.png" width="300px" height="300px;" class="geo-border-primary border mt-2">
+                                    <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" width="300px" height="300px;" class="geo-border-primary border mt-2">
 
                                     <p class="text-center" style="color: white; margin-top: 10px;"></p>
 
@@ -254,9 +252,8 @@
 
                             <td>
 
-                                <!-- <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" onerror="this.src='/images/no_image.png'" width="100px" height="100px;" class="geo-border-primary border mt-2" style='border-radius:5px;'> -->
+                                <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" width="100px" height="100px;" class="geo-border-primary border mt-2" style='border-radius:5px;'>
 
-                                <img src="/images/no_image.png" width="100px" height="100px;" class="geo-border-primary border mt-2" style='border-radius:5px;'>
 
                             </td>
 

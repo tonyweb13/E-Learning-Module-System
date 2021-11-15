@@ -12,9 +12,7 @@
 
                 <label>Subject Cover image </label><br>
 
-                <!-- <img src="{{$data->image ?? '/images/no_image.png'}}" onerror="this.src='/images/no_image.png'" width="300px" height="300px;" class="geo-border-primary border mt-2" id="image"> -->
-
-                <img src="/images/no_image.png" width="300px" height="300px;" class="geo-border-primary border mt-2" id="image">
+                <img src="{{$data->image ?? '/images/no_image.png'}}" width="300px" height="300px;" class="geo-border-primary border mt-2" id="image">
 
                 <button value="/images/no_image.png" class="btn geo-primary mt-1" id="select_img" type="button" style="width: 300px;">Upload image</button>
 

@@ -67,11 +67,8 @@ function getImageSize(){
 
     imageIndex++;
 
-    // $('#editor').append(`<img src="'/images/no_image.png'" onerror="this.src='/images/no_image.png'"
-    //                     width="${w2}px;" height="${h2}px;" class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
-
-    $('#editor').append(`<img src="'/images/no_image.png'"
-    width="${w2}px;" height="${h2}px;" class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
+    $('#editor').append(`<img src="'/images/no_image.png'" width="${w2}px;" height="${h2}px;"
+    class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
 
     $('#editor_image_select').click();
 }

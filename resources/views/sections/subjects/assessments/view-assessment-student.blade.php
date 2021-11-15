@@ -206,9 +206,7 @@
 
                                                                     <label class="role" >
 
-                                                                        <!-- <img id="preview-{{$key}}" src="{{$answer->answer ?? ''}}" onerror="this.src='/images/no_image.png'" alt="your image" width="200" height="200"/> -->
-
-                                                                        <img id="preview-{{$key}}" src="/images/no_image.png" alt="your image" width="200" height="200"/>
+                                                                        <img id="preview-{{$key}}" src="{{$answer->answer ?? '/images/no_image.png'}}" alt="your image" width="200" height="200"/>
 
                                                                     </label>
 
