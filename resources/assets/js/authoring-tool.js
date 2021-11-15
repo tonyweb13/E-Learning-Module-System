@@ -54,21 +54,25 @@ function fontEditor(type,fontName) {
 
 //image
 $('#editor_select_img').click(function() {
-    
+
     //open link modal
     $("#authoring-tool-image-modal").modal("show");
 });
 
 function getImageSize(){
-    
+
     $("#authoring-tool-image-modal").modal("hide");
     w2=$('#width2-url').val();
     h2=$('#height2-url').val();
-    
+
     imageIndex++;
-    
-    $('#editor').append(`<img src="'/images/no_image.png'" onerror="this.src='/images/no_image.png'" 
-                        width="${w2}px;" height="${h2}px;" class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
+
+    // $('#editor').append(`<img src="'/images/no_image.png'" onerror="this.src='/images/no_image.png'"
+    //                     width="${w2}px;" height="${h2}px;" class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
+
+    $('#editor').append(`<img src="'/images/no_image.png'"
+    width="${w2}px;" height="${h2}px;" class="geo-border-primary border mt-2" id="image-${imageIndex}">`);
+
     $('#editor_image_select').click();
 }
 
@@ -80,12 +84,12 @@ $('#editor_image_select').change(function() {
         reader.onload = function(e) {
             //upload image
             showLoader('Uploading!','Please wait...');
-            var file_data = $('#editor_image_select').prop('files')[0];   
-            var form_data = new FormData();                  
+            var file_data = $('#editor_image_select').prop('files')[0];
+            var form_data = new FormData();
             form_data.append('imageFile', file_data);
-            
+
             $.ajax({
-                     
+
                         type:"post",
                         url:"/upload/image",
                         data:form_data,
@@ -104,12 +108,12 @@ $('#editor_image_select').change(function() {
                             $(`#image-${imageIndex}`).attr('src',data);
                         }
                         Swal.close();
-                         
+
                         },
                         error: function(error) {
                             showHttpErrorAlert(error);
                         }
-            });  
+            });
         }
         // check if file is png
         ext=this.files[0].type;
@@ -129,11 +133,11 @@ function dismissImageModal(){
 
 //video
 $('#editor_select_img2').click(function() {
-    
+
     //open link modal
     $("#authoring-tool-frame-modal").modal("show");
-    
-    
+
+
 });
 
 function getFrameSize(){
@@ -141,7 +145,7 @@ function getFrameSize(){
     w=$('#width-url').val();
     h=$('#height-url').val();
     imageIndex++;
-    $('#editor').append(`<iframe src="https://www.w3schools.com" id="vidoe-${imageIndex}" style="width:${w}px; height: ${h}px;" 
+    $('#editor').append(`<iframe src="https://www.w3schools.com" id="vidoe-${imageIndex}" style="width:${w}px; height: ${h}px;"
                             class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);
     $('#editor_image_select2').click();
 }
@@ -154,14 +158,14 @@ $('#editor_image_select2').change(function() {
         reader.onload = function(e) {
             //upload image
             showLoader('Uploading!','Please wait...');
-            var file_data2 = $('#editor_image_select2').prop('files')[0];   
-            var form_data2 = new FormData();                  
+            var file_data2 = $('#editor_image_select2').prop('files')[0];
+            var form_data2 = new FormData();
             form_data2.append('videoFile', file_data2);
             console.log(file_data2);
             console.log(form_data2);
-            
+
             $.ajax({
-                     
+
                     type:"post",
                     url:"/upload/video",
                     data:form_data2,
@@ -180,12 +184,12 @@ $('#editor_image_select2').change(function() {
                         $(`#vidoe-${imageIndex}`).attr('src',data);
                     }
                     Swal.close();
-                     
+
                     },
                     error: function(error) {
                         showHttpErrorAlert(error);
                     }
-                });  
+                });
         }
         // check if file is png
         ext=this.files[0].type;
@@ -201,7 +205,7 @@ $('#editor_image_select2').change(function() {
 
 
 $('#editor_select_img3').click(function() {
-    
+
     imageIndex++;
     $('#editor_image_select3').click();
 });
@@ -214,17 +218,17 @@ $('#editor_image_select3').change(function() {
         reader.onload = function(e) {
             //upload image
             showLoader('Uploading!','Please wait...');
-            var file_data3 = $('#editor_image_select3').prop('files')[0];   
-            var form_data3 = new FormData();                  
+            var file_data3 = $('#editor_image_select3').prop('files')[0];
+            var form_data3 = new FormData();
             form_data3.append('fileFile', file_data3);
             console.log(file_data3);
             console.log(form_data3);
-            
+
             //filename = data.substring(data.lastIndexOf('/')+1);
             //extension = filename.split('.').pop();
-            
+
             $.ajax({
-                     
+
                     type:"post",
                     url:"/upload/file",
                     data:form_data3,
@@ -240,37 +244,37 @@ $('#editor_image_select3').change(function() {
 
                     }else{//success
                         console.log(1);
-                        
+
                         // if(extension == 'pdf'){
                         //     tmp=data;
                         // }else{
-                        //     tmp=`https://docs.google.com/gview?url=${data}&embedded=true`;   
+                        //     tmp=`https://docs.google.com/gview?url=${data}&embedded=true`;
                         // }
                         console.log(extension);
-                        
+
                         if(extension == 'pdf'){
-                            tmp=data; 
-                            
+                            tmp=data;
+
                         }else if(extension == 'doc' || extension == 'docx' || extension == 'docm'){
-                            
+
                             gid=data.match(/[-\w]{25,}/);
                             console.log(gid[0]);
                             tmp =`https://docs.google.com/document/d/${gid}/edit`;
-                            
+
                         }else if(extension == 'ppt' || extension == 'pptx' ){
-                            
+
                             gid=data.match(/[-\w]{25,}/);
                             console.log(gid[0]);
                             tmp =`https://docs.google.com/presentation/d/${gid}/edit`;
-                        
+
                         }else if(extension == 'xlsx' || extension == 'xlsm' || extension == 'xlsb' || extension == 'xltx' || extension == 'xltm' || extension == 'xls' || extension == 'xlt' || extension == 'xml'  || extension == 'xlam' || extension == 'xla'|| extension == 'xlw'|| extension == 'xlr'){
-                            
+
                             gid=data.match(/[-\w]{25,}/);
                             console.log(gid[0]);
                             tmp =`https://docs.google.com/spreadsheets/d/${gid}/edit`;
-                            
+
                         }
-                        
+
                         console.log(tmp);
                         tempfilename=filename;
                         $(`#editor`).append(`<button type="button" class="btn btn-light" value="${tmp}" onclick="fileLinkShow(this.value)">${filename}</button>`);
@@ -281,7 +285,7 @@ $('#editor_image_select3').change(function() {
                     error: function(error) {
                         showHttpErrorAlert(error);
                     }
-                });  
+                });
         }
         // check if file is png
         ext=this.files[0].type;
@@ -289,7 +293,7 @@ $('#editor_image_select3').change(function() {
         if(ext.includes("application")){
             filename = this.files[0].name;
             extension = filename.split('.').pop();
-            
+
             reader.readAsDataURL(this.files[0]);
         }else{
             showWarningAlert('Warning','Please select documents');
@@ -298,12 +302,12 @@ $('#editor_image_select3').change(function() {
 });
 
 function fileLinkShow(link){
-    
+
     $('#document-preview-frame').attr('src', link);
     $('#view2-modal').modal("hide");
     $('#create-modal').modal("hide");
     $("#file-preview-modal").modal("show");
-    
+
 }
 
 // function fileLinkShow(link){
@@ -318,7 +322,7 @@ function fileLinkShow(link){
 // }
 
 // function insertLink(){
-    
+
 //     $("#authoring-tool-link-modal").modal("show");
 // }
 
@@ -347,11 +351,11 @@ function dismissFrameModal(){
 }
 
 // function embeedLink(){
-    
+
 //     $("#authoring-tool-embeed-modal").modal("show");
 // }
 $('#embed-video-btn').click(function() {
-    
+
     $("#authoring-tool-embeed-modal").modal("show");
 });
 
@@ -360,15 +364,15 @@ function appendEmbeed(){
     link=$('#link-embeed-url').val();
     if(link.includes("youtu.be") == true){
         result = /[^/]*$/.exec(link)[0];
-        $('#editor').append(`<iframe src="https://www.youtube.com/embed/${result}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);   
+        $('#editor').append(`<iframe src="https://www.youtube.com/embed/${result}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);
     }else if(link.includes("youtube") == true){
         result = link.substring(link.indexOf('=') + 1);
         console.log(result);
-        $('#editor').append(`<iframe src="https://www.youtube.com/embed/${result}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);   
+        $('#editor').append(`<iframe src="https://www.youtube.com/embed/${result}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);
     }else{
-        $('#editor').append(`<iframe src="${link}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);   
+        $('#editor').append(`<iframe src="${link}" id="frame-${imageIndex}" style="width: 100%; height: 600px;" class="geo-border-primary border mt-2" controlsList="nodownload"></iframe>`);
     }
-    
+
     $("#authoring-tool-embeed-modal").modal("hide");
     $('#link-embeed-url').val('');
 }
