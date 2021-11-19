@@ -1919,6 +1919,27 @@ class SectionsController extends Controller
                                    ->where('is_deleted',0)
                                    ->orderby('id')
                                    ->get();
+
+        /* Get Duplicates question id */
+        $submittedAssessments = SubmittedAssessment::where('subject_assessment_id', $assessment_id)
+        ->where('added_by', $user_id)
+        ->groupBy('question_id')
+        ->havingRaw('COUNT(question_id) > 1')
+        ->get();
+
+        /* Remove duplicates */
+        if (count($submittedAssessments) > 0) {
+            foreach($submittedAssessments as $submittedAssess) {
+                SubmittedAssessment::where('subject_assessment_id', $submittedAssess->subject_assessment_id)
+                 ->where('added_by', $submittedAssess->added_by)
+                 ->where('question_id', $submittedAssess->question_id)
+                 ->where('id', $submittedAssess->id)
+                 ->update(['is_deleted'  => 1]);
+             }
+        }
+
+        $user = User::where('id', $user_id)->first();
+
         $total=0;
         $over=0;
         foreach($result as $d){
@@ -1926,7 +1947,7 @@ class SectionsController extends Controller
             $over=$over + $d->point;
         }
         //return  $result;
-        return view('sections.subjects.assessments.view-submitted-assessment',compact('section','subject','assessment','result','user_id','type','keyword','total','over','assessment_student'));
+        return view('sections.subjects.assessments.view-submitted-assessment',compact('section','subject','assessment','result','user_id','type','keyword','total','over','assessment_student','user'));
     }
 
     public function subjectViewSubmittedAssessment2(Request $request,$section_id,$subject_id,$user_id,$assessment_id){

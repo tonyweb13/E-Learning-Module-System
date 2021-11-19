@@ -138,6 +138,9 @@
 
                             <div class="border geo-border-primary rounded p-3">
 
+                                @if($user)
+                                    <h3> {{ $user->first_name }} {{ $user->last_name }}</h3><br>
+                                @endif
                                 <input type="hidden" name="view_assessment_id" id="view-assessment-id" value="{{$assessment->id ?? ''}}">
 
                                 <h3>{{$assessment->name ?? ''}}</h3>
