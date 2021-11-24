@@ -1,103 +1,103 @@
-textarea:focus, 
-textarea.form-control:focus,
-input.form-control:focus, 
-input[type=text]:focus, 
-input[type=password]:focus, 
-input[type=email]:focus, 
-input[type=number]:focus, 
-[type=text].form-control:focus, 
-[type=password].form-control:focus, 
-[type=email].form-control:focus, 
-[type=tel].form-control:focus, 
-[contenteditable].form-control:focus {
-  box-shadow: inset 0 -1px 0 #ddd;
-  outline: none !important;
-}
-
-.ui-autocomplete-loading {
-	background:url('/img/loader.gif') no-repeat right center;
-	background-size: 25px 25px;
-}
-.ui-autocomplete {
-	max-height: 200px;
-	overflow-y: auto;
-	/* prevent horizontal scrollbar */
-	overflow-x: hidden;
-	text-align: left !important;
-}
-.table-td-top td {
-	vertical-align: top !important;
-}
-.pointer {
-	cursor: pointer !important;
-}
-td {
-	vertical-align: middle !important;
-}
-textarea {
-	resize: none !important;
-}
-.btn-warn {
-	background-color: #facea8 !important;
-	color: black !important;
-}
-.swal-title {
-	font-size: 20px !important;
-	font-family: 'Lato' !important;
-}
-.swal-subtitle {
-	font-size: 16px !important;
-	font-family: 'Lato' !important;
-}
-.swal-subtitle-validation {
-	font-size: 16px !important;
-	text-align: left !important
-}
-.swal-okay-button {
-	font-size: .8em !important;
-	padding: 10px;
-	width: 45% !important;
-}
-.small {
-	font-size: .95em !important;
-}
-
-
-.unread {
-	font-weight: bold;
-	background-color:#a5b1b7;
-}
-.read{
-    
-    font-weight: normal;   
-}
-.div-hover:hover {
-	/*background-color: #e6e6e6 !important;*/
-	background-color: #cddde4 !important;
-	cursor: pointer;
-}
-.sent {
-	width: 45%;
-	padding:10px;
-	border-radius: 10px 10px 10px 0;
-	white-space: pre-wrap;
-	text-align: right;
-	margin-left: 55%;
-	margin-bottom: 10px;
-	background-color: #2196f3;
-	color: white;
-}
-
-.receive {
-	width: 45%;
-	padding:10px;
-	border-radius: 10px 10px 10px 0;
-	white-space: pre-wrap;
-	margin-bottom: 10px;
-	background-color: #25699e;
-	color: white;
-}
-.actives {
-	border-left: 5px solid #31d969;
-	background-color:#dff0e5;
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+  outline: none !important;
+}
+
+.ui-autocomplete-loading {
+	background:url('/img/loader.gif') no-repeat right center;
+	background-size: 25px 25px;
+}
+.ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	text-align: left !important;
+}
+.table-td-top td {
+	vertical-align: top !important;
+}
+.pointer {
+	cursor: pointer !important;
+}
+td {
+	vertical-align: middle !important;
+}
+textarea {
+	resize: none !important;
+}
+.btn-warn {
+	background-color: #facea8 !important;
+	color: black !important;
+}
+.swal-title {
+	font-size: 20px !important;
+	font-family: 'Lato' !important;
+}
+.swal-subtitle {
+	font-size: 16px !important;
+	font-family: 'Lato' !important;
+}
+.swal-subtitle-validation {
+	font-size: 16px !important;
+	text-align: left !important
+}
+.swal-okay-button {
+	font-size: .8em !important;
+	padding: 10px;
+	width: 45% !important;
+}
+.small {
+	font-size: .95em !important;
+}
+
+
+.unread {
+	font-weight: bold;
+	background-color:#a5b1b7;
+}
+.read{
+
+    font-weight: normal;
+}
+.div-hover:hover {
+	/*background-color: #e6e6e6 !important;*/
+	background-color: #cddde4 !important;
+	cursor: pointer;
+}
+.sent {
+	width: 45%;
+	padding:10px;
+	border-radius: 10px 10px 10px 0;
+	white-space: pre-wrap;
+	text-align: right;
+	margin-left: 55%;
+	margin-bottom: 10px;
+	background-color: #2196f3;
+	color: white;
+}
+
+.receive {
+	width: 45%;
+	padding:10px;
+	border-radius: 10px 10px 10px 0;
+	white-space: pre-wrap;
+	margin-bottom: 10px;
+	background-color: #25699e;
+	color: white;
+}
+.actives {
+	border-left: 5px solid #31d969;
+	background-color:#dff0e5;
 }

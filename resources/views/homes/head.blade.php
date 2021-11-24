@@ -63,5 +63,4 @@
 
             <script src="{{ mix('js/public.js') }}"></script>
     </head>
-
     <body>

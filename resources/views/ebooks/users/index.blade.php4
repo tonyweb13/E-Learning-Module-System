@@ -38,7 +38,9 @@
                             <div class="border" style="background-color: #142d57;">
                                 <br>
                                 <h5 class="text-center" style="color: white;">{{$result->ebook->ebook_title ?? ''}}</h5>
-                                <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" onerror="this.src='/images/no_image.png'" width="300px" height="300px;" class="geo-border-primary border mt-2">
+
+                                <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" width="300px" height="300px;" class="geo-border-primary border mt-2">
+
                                 <p class="text-center" style="color: white; margin-top: 10px;"></p>
                                 <div class="text-center" style="padding: 10px;">
                                     @php
@@ -47,7 +49,7 @@
                 			    <button data-toggle="modal" data-target="#modal-lg4-{{$result->id}}"title="view"class="btn btn-warning text-light mb-1">
                                     <i class="fa fa-eye"></i>View
                                 </button>
-                                
+
 						        <!-- Button trigger modal -->
                                 <div class="modal fade" id="modal-lg4-{{$result->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                               <div class="modal-dialog"style="max-width: 1800px!important;">
@@ -57,20 +59,20 @@
                                     <h4 class="modal-title"></h4>
                                   </div>
                                   <div class="modal-body">
-                                    
+
 
                                     <iframe src="/bibi/?book=/bibi-bookshelf/{{$result->ebook_title}}"width="100%" height="800" align="center">
                                           </iframe>
-                                      
+
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    
+
                                   </div>
                                 </div>
                               </div>
                             </div>
-                                    
+
                                     @if(Auth::user()->userType->name == 'Teacher')
                                         @if($result->ebook->tg_id || $result->ebook->tg_id != 0)
                                             <button type="button" value="{{$result->ebook->tg_id}}" class="btn text-light mb-1" style="background-color: #9575cd;" onclick="openTg(this.value);">
@@ -83,7 +85,7 @@
                                                 View TG
                                             </button>
                                         @endif
-                                        
+
                                         @if($result->ebook->cm_id || $result->ebook->cm_id !=0)
                                             <button type="button" class="btn text-light mb-1" value="{{$result->ebook->cm_id}}" style="background-color: #66cdaa;" onclick="openCM(this.value);">
                                                 <i class="fa fa-eye"></i>
@@ -116,7 +118,8 @@
                     <tr>
                         <td>{{ $results->firstItem() + $key }}</td>
                         <td>
-                            <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" onerror="this.src='/images/no_image.png'" width="130px" height="100px;" class="geo-border-primary border mt-2">
+                            <img src="{{$result->ebook->cover_image ?? '/images/no_image.png'}}" width="130px" height="100px;" class="geo-border-primary border mt-2">
+
                         </td>
                         <td>{{$result->ebook->ebook_title ?? ''}}</td>
                         <!--<td>{{$result->price ?? ''}}</td>-->
@@ -124,7 +127,7 @@
                         @php
         				$arr = explode('/',$result->file);
         			    @endphp
-							
+
                             <button data-target="#modal-lg3-{{$result->id}}" data-toggle="modal" title="View" class="action-btn btn geo-primary text-light mb-1">
                                 <i class="fa fa-eye"></i>
                             </button>
@@ -159,7 +162,7 @@
                                         <i class="fa fa-eye"></i>
                                     </button>
                                 @endif
-                                
+
                                 @if($result->ebook->cm_id || $result->ebook->cm_id !=0)
                                     <button type="button" class="btn text-light mb-1" value="{{$result->ebook->cm_id}}" style="background-color: #66cdaa;" onclick="openCM(this.value);">
                                         <i class="fa fa-eye"></i>
@@ -169,8 +172,8 @@
                                         <i class="fa fa-eye"></i>
                                     </button>
                                 @endif
-                            @endif  
-                            
+                            @endif
+
                             <!--@if($result->ebook->tg_id)-->
                             <!--    <button type="button" value="{{$result->ebook->tg_id}}" class="btn text-light mb-1" style="background-color: #9575cd;" onclick="openTg(this.value);">-->
                             <!--        <i class="fa fa-eye"></i>-->
@@ -186,12 +189,12 @@
                             <!--@endif-->
                         </td>
                     </tr>
-                @endforeach  
+                @endforeach
             </table>
         </div>
         <br>
         <div id="page-nav">{{ $results->links() }}</div>
-        
+
         <br>
         <br>
     @endsection

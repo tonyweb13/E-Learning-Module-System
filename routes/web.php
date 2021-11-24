@@ -242,6 +242,8 @@ Route::get('/ebooks/assign/teacher/{id}', 'EbooksController@assignEbookTeacher')
 
 Route::post('/ebooks/assign/users/store', 'EbooksController@assignEbook');
 
+Route::post('/ebooks/unassign/users/store', 'EbooksController@unAssignEbook');
+
 Route::post('/get/view/tg', 'EbooksController@getTG');
 
 Route::post('/get/view/ebook', 'EbooksController@getSingleEbook');
@@ -352,6 +354,8 @@ Route::get('/sections/subjects/assessment/get-assessement/{sectionid}/{subjectid
 
 Route::get('/sections/subjects/assessment/answer/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment');
 
+Route::get('/sections/subjects/assessment/answer2/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment2');
+
 Route::post('/sections/subjects/assessment/submit', 'SectionsController@subjectAssessmentSubmit');
 
 Route::get('/sections/subjects/assessment/get/submitted/assessement/{sectionid}/{subjectid}/{id}','SectionsController@subjectGetSubmittedAssessment');
@@ -420,6 +424,8 @@ Route::get('/sections/records/student/view2/{sectionid}', 'SectionsController@re
 
 Route::get('sections/subjects/report/{sectionid}/{id}', 'SectionsController@recordSubject');
 
+Route::get('sections/subjects/report/export/{sectionid}/{id}', 'SectionsController@reportExport');
+
 Route::post('/sections/subjects/report/get-submitted-report', 'SectionsController@assessmentRecord');
 
 Route::post('/sections/subjects/report/edit-grade/store', 'SectionsController@editGradeStore');
@@ -427,8 +433,6 @@ Route::post('/sections/subjects/report/edit-grade/store', 'SectionsController@ed
 /*library*/
 
 Route::resource('/libraries', 'LibrariesController');
-
-
 
 /*My Account*/
 

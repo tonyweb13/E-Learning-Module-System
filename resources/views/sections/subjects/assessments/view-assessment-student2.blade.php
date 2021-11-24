@@ -206,7 +206,7 @@
 
                                                                     <label class="role" >
 
-                                                                        <img id="preview-{{$key}}" src="{{$answer->answer ?? '/images/no_image.png'}}" alt="your image" width="200" height="200"/>
+                                                                        <img id="preview-{{$key}}" src="/images/no_image.png" alt="your image" width="200" height="200"/>
 
                                                                     </label>
 
@@ -356,31 +356,33 @@
 
                                 <br>
 
-                                @if($result->mode == 'graded')
+                                UNDER DEVELOPMENT USE OTHER BUTTON TO ANSWER ASSESSMENT
 
-                                    @if($result->assessmentStudent[0]->status == 'To be completed')
+                                <!--@if($result->mode == 'graded')-->
 
-                                        <div class="right" id="graded-btn">
+                                <!--    @if($result->assessmentStudent[0]->status == 'To be completed')-->
 
-                                            <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>
+                                <!--        <div class="right" id="graded-btn">-->
 
-                                            <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>
+                                <!--            <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>-->
 
-                                        </div>
+                                <!--            <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>-->
 
-                                    @endif
+                                <!--        </div>-->
 
-                                @else
+                                <!--    @endif-->
 
-                                    <div class="right">
+                                <!--@else-->
 
-                                        <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>
+                                <!--    <div class="right">-->
 
-                                        <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>
+                                <!--        <button class="btn geo-primary" value="{{$employee->id ?? ''}}" id="eid"><i class="fa fa-save"></i>&nbsp;&nbsp;Submit</button>-->
 
-                                    </div>
+                                <!--        <button class="btn btn-danger" type="button" id="reset_btn"><i class="fa fa-eraser"></i>&nbsp;&nbsp;Reset</button>-->
 
-                                @endif
+                                <!--    </div>-->
+
+                                <!--@endif-->
 
                                 <br><br>
 

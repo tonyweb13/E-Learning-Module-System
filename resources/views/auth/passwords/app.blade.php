@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="{{ app()->getLocale() }}">
-
 <head>
 
     <title>@yield('page_title')</title>
@@ -49,5 +47,4 @@
      @yield('content')
 
 </body>
-
 </html>
