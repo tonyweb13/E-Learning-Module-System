@@ -47,7 +47,7 @@ function findObjectBySubKey(array, key1, key2, value) {
         }
     }
     return null;
-} 
+}
 
 function multiArraySort(array, key) {
     array.sort(function (a,b) {
@@ -102,9 +102,9 @@ function combine(id, index)
 function initAutocomplete(labelId, hiddenId, list, minLength, onChange, onSelect) {
     if (! minLength) minLength = 0;
 
-    if (labelId && labelId[0] !== '#') 
+    if (labelId && labelId[0] !== '#')
         labelId = '#' + labelId;
-    if (hiddenId && hiddenId[0] !== '#') 
+    if (hiddenId && hiddenId[0] !== '#')
         hiddenId = '#' + hiddenId;
 
     $(labelId).autocomplete({
@@ -122,7 +122,7 @@ function initAutocomplete(labelId, hiddenId, list, minLength, onChange, onSelect
 
             event.preventDefault();
         },
-        change: function(event, ui) {           
+        change: function(event, ui) {
             var selection = $(this).val();
 
             var matches = list.filter(function(val) {

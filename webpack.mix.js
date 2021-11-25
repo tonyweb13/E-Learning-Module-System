@@ -35,9 +35,18 @@ const mix = require('laravel-mix');
     'resources/assets/css/sidenav.css',
     'resources/assets/css/web.css',
     'resources/assets/css/sidenav.css',
+    'resources/assets/css/font-awesome.min.css',
+    'resources/assets/css/app.css'
 ],'public/css/public.css');
 
 mix.js([
+    'resources/assets/js/jquery/jquery-3.4.1.min.js',
+    'resources/assets/js/popper/popper.min.js',
+    'resources/assets/js/bootstrap/bootstrap.min.js',
+    'resources/assets/js/jquery-ui/jquery-ui.js',
+    'resources/assets/js/swal/swal.min.js',
+    'resources/assets/js/global_functions.js',
+    'resources/assets/js/navbar.js',
     'resources/assets/js/manifest.js',
     'resources/assets/js/vendor.js',
     'resources/assets/js/helper.js',
