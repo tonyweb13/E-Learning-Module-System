@@ -20,22 +20,6 @@
 
     @yield('scripts')
 
-    <script type="text/javascript" src="/js/jquery/jquery-3.4.1.min.js"></script>
-
-    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js"></script>
-
-    <script type="text/javascript" src="/js/popper/popper.min.js"></script>
-
-    <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="/js/socket.io/socket.io.min.js"></script>
-
-    <script type="text/javascript" src="/js/global_functions.js"></script>
-
-    <script type="text/javascript" src="/js/my.js"></script>
-
-    <script type="text/javascript" src="/js/swal/swal.min.js"></script>
-
     <!-- chartingjs --> <!-- currently use -->
 
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
@@ -45,6 +29,16 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <!-- chart js -->
+
+    <script type="text/javascript" src="/js/jquery/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/js/popper/popper.min.js"></script>
+
+    <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/js/socket.io/socket.io.min.js"></script>
+
+    <script type="text/javascript" src="/js/global_functions.js"></script>
 
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
