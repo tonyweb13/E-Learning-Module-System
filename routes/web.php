@@ -7,506 +7,460 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth' ,'checksinglesession']],
     function () {
 
-            Route::get('/testing', 'MainHomeController@testingonly');
+        Route::get('/testing', 'MainHomeController@testingonly');
 
-            /*MainHomeController*/
-            Route::get('/home', 'MainHomeController@index')->name('home');
+        /*MainHomeController*/
+        Route::get('/home', 'MainHomeController@index')->name('home');
 
-            //sample view of ebook
+        //sample view of ebook
 
-            Route::get('/sample/ebook', 'MainHomeController@sampleEbook');
+        Route::get('/sample/ebook', 'MainHomeController@sampleEbook');
 
-            //after user login
+        //after user login
 
-            Route::get('/homes', 'MainHomeController@indexs')->name('home');
+        Route::get('/homes', 'MainHomeController@indexs')->name('home');
 
-            //verify account
+        //verify account
 
-            Route::get('/account/verify/{id}/{uid}', 'MainHomeController@verifyAccount');
+        Route::get('/account/verify/{id}/{uid}', 'MainHomeController@verifyAccount');
 
-            //import user
+        //import user
 
-            Route::get('/users/import', 'MainHomeController@importUser');
+        Route::get('/users/import', 'MainHomeController@importUser');
 
-            Route::post('/users/import/store', 'MainHomeController@importUserStore');
+        Route::post('/users/import/store', 'MainHomeController@importUserStore');
 
-            //editor upload image
+        //editor upload image
 
-            Route::post('/upload/image', 'MainHomeController@uploadImage');
+        Route::post('/upload/image', 'MainHomeController@uploadImage');
 
-            //editor upload video or audio
+        //editor upload video or audio
 
-            Route::post('/upload/video', 'MainHomeController@uploadVideo');
+        Route::post('/upload/video', 'MainHomeController@uploadVideo');
 
-            //file
+        //file
 
-            Route::post('/upload/file', 'MainHomeController@uploadFile');
+        Route::post('/upload/file', 'MainHomeController@uploadFile');
 
-            //get institute
+        //get institute
 
-            Route::get('/users/get-institute', 'MainHomeController@getInstitute');
+        Route::get('/users/get-institute', 'MainHomeController@getInstitute');
 
-            Route::get('/self/users/get-institute', 'MainHomeController@getInstituteSelf');
+        Route::get('/self/users/get-institute', 'MainHomeController@getInstituteSelf');
 
-            //get created user
+        //get created user
 
-            Route::post('/users/get/created/user', 'MainHomeController@getCreatedUser');
+        Route::post('/users/get/created/user', 'MainHomeController@getCreatedUser');
 
-            //Grades
+        //Grades
 
-            Route::get('/get-grades', 'GradesController@getGrades');
+        Route::get('/get-grades', 'GradesController@getGrades');
 
-            /*Module here*/
+        /*Module here*/
 
-            //dashboard
+        //dashboard
 
-            /*users*/
+        /*users*/
 
-            //admin
+        //admin
 
-            Route::resource('/users/admins', 'AdminUsersController');
+        Route::resource('/users/admins', 'AdminUsersController');
 
-            Route::get('/users/admins/edit/{id}', 'AdminUsersController@edit');
+        Route::get('/users/admins/edit/{id}', 'AdminUsersController@edit');
 
-            Route::get('/users/admins/activity/{id}', 'AdminUsersController@activityLogs');
+        Route::get('/users/admins/activity/{id}', 'AdminUsersController@activityLogs');
 
-            Route::post('/users/admins/delete', 'AdminUsersController@delete');
+        Route::post('/users/admins/delete', 'AdminUsersController@delete');
 
+        //institute
 
+        Route::resource('/users/institutes', 'InstitutionalAdminUsersController');
 
-            //institute
+        Route::get('/users/institutes/edit/{id}', 'InstitutionalAdminUsersController@edit');
 
-            Route::resource('/users/institutes', 'InstitutionalAdminUsersController');
+        Route::get('/users/institutes/activity/{id}', 'InstitutionalAdminUsersController@activityLogs');
 
-            Route::get('/users/institutes/edit/{id}', 'InstitutionalAdminUsersController@edit');
+        Route::post('/users/institutes/delete', 'InstitutionalAdminUsersController@delete');
 
-            Route::get('/users/institutes/activity/{id}', 'InstitutionalAdminUsersController@activityLogs');
+        //teacher
 
-            Route::post('/users/institutes/delete', 'InstitutionalAdminUsersController@delete');
+        Route::resource('/users/teachers', 'TeacherUsersController');
 
-            //teacher
+        Route::get('/users/teachers/edit/{id}', 'TeacherUsersController@edit');
 
-            Route::resource('/users/teachers', 'TeacherUsersController');
+        Route::get('/users/teachers/activity/{id}', 'TeacherUsersController@activityLogs');
 
-            Route::get('/users/teachers/edit/{id}', 'TeacherUsersController@edit');
+        Route::post('/users/teachers/delete', 'TeacherUsersController@delete');
 
-            Route::get('/users/teachers/activity/{id}', 'TeacherUsersController@activityLogs');
+        //student
 
-            Route::post('/users/teachers/delete', 'TeacherUsersController@delete');
+        Route::resource('/users/students', 'StudentUsersController');
 
-            //student
+        Route::get('/users/students/edit/{id}', 'StudentUsersController@edit');
 
-            Route::resource('/users/students', 'StudentUsersController');
+        Route::get('/users/students/activity/{id}', 'StudentUsersController@activityLogs');
 
-            Route::get('/users/students/edit/{id}', 'StudentUsersController@edit');
+        Route::post('/users/students/delete', 'StudentUsersController@delete');
 
-            Route::get('/users/students/activity/{id}', 'StudentUsersController@activityLogs');
+        /*subject*/
 
-            Route::post('/users/students/delete', 'StudentUsersController@delete');
+        Route::resource('/subjects', 'SubjectsController');
 
+        Route::post('/subjects/editor', 'SubjectsController@editor');
 
+        Route::get('/get-subjects', 'SubjectsController@getSubjects');
 
-            /*subject*/
+        Route::post('/subjects/assigned', 'SubjectsController@getAssignedSubjects');
 
-            Route::resource('/subjects', 'SubjectsController');
+        Route::get('/subjects/get/mysubjects', 'SubjectsController@getMySubjects');
 
-            Route::post('/subjects/editor', 'SubjectsController@editor');
+        Route::get('/subjects/assigned/teacher/{id}', 'SubjectsController@assignedSubjectTeacher');
 
-            Route::get('/get-subjects', 'SubjectsController@getSubjects');
+        Route::get('/subjects/assign/teacher/{id}', 'SubjectsController@assignSubjectTeacher');
 
-            Route::post('/subjects/assigned', 'SubjectsController@getAssignedSubjects');
+        Route::post('/subjects/assign/users/store', 'SubjectsController@assignSubject');
 
-            Route::get('/subjects/get/mysubjects', 'SubjectsController@getMySubjects');
+        Route::post('/subjects/delete', 'SubjectsController@delete');
 
-            Route::get('/subjects/assigned/teacher/{id}', 'SubjectsController@assignedSubjectTeacher');
+        Route::get('/subjects/edit/{id}', 'SubjectsController@edit');
 
-            Route::get('/subjects/assign/teacher/{id}', 'SubjectsController@assignSubjectTeacher');
+        /*textbooks*/
 
-            Route::post('/subjects/assign/users/store', 'SubjectsController@assignSubject');
+        //workbooks
 
-            Route::post('/subjects/delete', 'SubjectsController@delete');
+        Route::resource('/textbooks/workbooks', 'WorkBooksController');
 
-            Route::get('/subjects/edit/{id}', 'SubjectsController@edit');
+        Route::get('/textbooks/workbooks/{id}', 'WorkBooksController@show');
 
+        Route::get('/textbooks/workbooks/edit/{id}', 'WorkBooksController@edit');
 
+        Route::post('/textbooks/workbooks/delete', 'WorkBooksController@delete');
 
+        //techers guide
 
+        Route::resource('/textbooks/teachersguides', 'TeachersGuideController');
 
+        Route::get('/textbooks/teachersguides/{id}', 'TeachersGuideController@show');
 
+        //guides
 
-            /*textbooks*/
+        Route::resource('/guides', 'GuidesController');
 
-            //workbooks
+        Route::get('/guides/view/{id}', 'GuidesController@show');
 
-            Route::resource('/textbooks/workbooks', 'WorkBooksController');
+        Route::get('/guides/edit/{id}', 'GuidesController@edit');
 
-            Route::get('/textbooks/workbooks/{id}', 'WorkBooksController@show');
+        Route::post('/guides/delete', 'GuidesController@delete');
 
-            Route::get('/textbooks/workbooks/edit/{id}', 'WorkBooksController@edit');
+        Route::get('/get-guides', 'GuidesController@getGuides');
 
-            Route::post('/textbooks/workbooks/delete', 'WorkBooksController@delete');
+        //ebooks
 
-            //techers guide
+        Route::resource('/ebooks', 'EbooksController');
 
-            Route::resource('/textbooks/teachersguides', 'TeachersGuideController');
+        Route::get('/ebooks/get/myebooks', 'EbooksController@myEbook');
 
-            Route::get('/textbooks/teachersguides/{id}', 'TeachersGuideController@show');
+        Route::get('/ebooks/get/products', 'EbooksController@EbookProduct');
 
-            //guides
+        Route::get('/ebooks/edit/{id}', 'EbooksController@edit');
 
-            Route::resource('/guides', 'GuidesController');
+        Route::post('/ebooks/delete', 'EbooksController@delete');
 
-            Route::get('/guides/view/{id}', 'GuidesController@show');
+        Route::get('/ebooks/assigned/teacher/{id}', 'EbooksController@assignedEbookTeacher');
 
-            Route::get('/guides/edit/{id}', 'GuidesController@edit');
+        Route::get('/ebooks/assign/teacher/{id}', 'EbooksController@assignEbookTeacher');
 
-            Route::post('/guides/delete', 'GuidesController@delete');
+        Route::post('/ebooks/assign/users/store', 'EbooksController@assignEbook');
 
-            Route::get('/get-guides', 'GuidesController@getGuides');
+        Route::post('/ebooks/unassign/users/store', 'EbooksController@unAssignEbook');
 
+        Route::post('/get/view/tg', 'EbooksController@getTG');
 
+        Route::post('/get/view/ebook', 'EbooksController@getSingleEbook');
 
-            //ebooks
+        Route::get('/trylang', 'EbooksController@trialOnly');
 
-            Route::resource('/ebooks', 'EbooksController');
+        //address
 
-            Route::get('/ebooks/get/myebooks', 'EbooksController@myEbook');
+        Route::post('/getcities', 'ApiZipcodesController@selectCityWhereProvince');
 
-            Route::get('/ebooks/get/products', 'EbooksController@EbookProduct');
+        Route::post('/getzipcodes', 'ApiZipcodesController@selectZipcodeWhereCity');
 
-            Route::get('/ebooks/edit/{id}', 'EbooksController@edit');
+        // //assigned product
 
-            Route::post('/ebooks/delete', 'EbooksController@delete');
+        // Route::post('/get-assigned-products','AssignedProductsController@getAssignedProducts');
 
-            Route::get('/ebooks/assigned/teacher/{id}', 'EbooksController@assignedEbookTeacher');
+        /*TEACHER*/
 
-            Route::get('/ebooks/assign/teacher/{id}', 'EbooksController@assignEbookTeacher');
+        //classes
 
-            Route::post('/ebooks/assign/users/store', 'EbooksController@assignEbook');
+        Route::resource('/sections', 'SectionsController');
 
-            Route::post('/ebooks/unassign/users/store', 'EbooksController@unAssignEbook');
+        Route::get('/sections/view/{id}', 'SectionsController@show');
 
-            Route::post('/get/view/tg', 'EbooksController@getTG');
+        Route::get('/sections/edit/{id}', 'SectionsController@edit');
 
-            Route::post('/get/view/ebook', 'EbooksController@getSingleEbook');
+        Route::post('/sections/delete/', 'SectionsController@delete');
 
-            Route::get('/trylang', 'EbooksController@trialOnly');
+        Route::post('/sections/status', 'SectionsController@status');
 
+        Route::get('/sections/shared/{id}', 'SectionsController@shared');
 
+        Route::get('/sections/share/{id}', 'SectionsController@share');
 
-            //address
+        Route::post('/sections/share/store', 'SectionsController@shareStore');
 
-            Route::post('/getcities', 'ApiZipcodesController@selectCityWhereProvince');
+        Route::post('/sections/share/delete', 'SectionsController@shareRemove');
 
-            Route::post('/getzipcodes', 'ApiZipcodesController@selectZipcodeWhereCity');
+        //subject
 
+        Route::get('/sections/subjects/{id}', 'SectionsController@subjectIndex');//browse
 
+        Route::get('/sections/subjects/create/{id}', 'SectionsController@subjectCreate');//create
 
-            // //assigned product
+        Route::post('/sections/subjects/store', 'SectionsController@subjectStore');//store
 
-            // Route::post('/get-assigned-products','AssignedProductsController@getAssignedProducts');
+        Route::get('/sections/subjects/edit/{section_id}/{id}', 'SectionsController@subjectEdit');
 
+        Route::post('/sections/subjects/delete/', 'SectionsController@subjectDelete');
 
+        Route::post('/sections/subjects/status', 'SectionsController@subjectStatus');
 
-            /*TEACHER*/
+        //lesson
 
-            //classes
+        Route::get('/sections/subjects/lessons/view/{section_id}/{subject_id}/{lessonid}','SectionsController@subjectLessons');//view
 
-            Route::resource('/sections', 'SectionsController');
+        Route::post('/sections/subjects/lessons/store', 'SectionsController@subjectLessonStore');
 
-            Route::get('/sections/view/{id}', 'SectionsController@show');
+        Route::post('/sections/subjects/get-lesson', 'SectionsController@getSubjectLesson');
 
-            Route::get('/sections/edit/{id}', 'SectionsController@edit');
+        Route::post('/sections/subjects/lessons/delete', 'SectionsController@subjectLessonDelete');
 
-            Route::post('/sections/delete/', 'SectionsController@delete');
+        Route::post('/sections/subjects/lessons/status', 'SectionsController@subjectLessonStatus');
 
-            Route::post('/sections/status', 'SectionsController@status');
+        //topic
 
-            Route::get('/sections/shared/{id}', 'SectionsController@shared');
+        Route::post('/sections/subjects/topic/store', 'SectionsController@lessonTopicStore');
 
-            Route::get('/sections/share/{id}', 'SectionsController@share');
+        Route::post('/sections/subjects/lessons/topic/view', 'SectionsController@lessonTopicView');
 
-            Route::post('/sections/share/store', 'SectionsController@shareStore');
+        Route::post('/sections/subjects/lessons/topic/delete', 'SectionsController@lessonTopicDelete');
 
-            Route::post('/sections/share/delete', 'SectionsController@shareRemove');
+        Route::post('/sections/subjects/lessons/topic/status', 'SectionsController@lessonTopicStatus');
 
-            //subject
+        //get my subject
 
-            Route::get('/sections/subjects/{id}', 'SectionsController@subjectIndex');//browse
+        Route::post('/sections/get-subject', 'SectionsController@getSubject');
 
-            Route::get('/sections/subjects/create/{id}', 'SectionsController@subjectCreate');//create
+        //assessments
 
-            Route::post('/sections/subjects/store', 'SectionsController@subjectStore');//store
+        Route::get('/sections/subjects/assessments/{sectionid}/{subjectid}/{assessment_id}', 'SectionsController@subjectAssessmentIndex');
 
-            Route::get('/sections/subjects/edit/{section_id}/{id}', 'SectionsController@subjectEdit');
+        Route::get('/sections/subjects/assessments/students/{sectionid}/{subjectid}/{assessment_id}', 'SectionsController@subjectAssessmentIndexStudents');
 
-            Route::post('/sections/subjects/delete/', 'SectionsController@subjectDelete');
+        Route::get('/sections/subjects/assessment/create/{sectionid}/{subjectid}','SectionsController@subjectAssessmentCreate');
 
-            Route::post('/sections/subjects/status', 'SectionsController@subjectStatus');
+        Route::post('/get-sectiongradescale', 'SectionsController@getGradeScale');
 
-            //lesson
+        Route::post('/get-sectionassessmentscale', 'SectionsController@getAssessmentScale');
 
-            Route::get('/sections/subjects/lessons/view/{section_id}/{subject_id}/{lessonid}','SectionsController@subjectLessons');//view
+        Route::post('/sections/subjects/assessment/store', 'SectionsController@subjectAssessmentStore');
 
-            Route::post('/sections/subjects/lessons/store', 'SectionsController@subjectLessonStore');
+        Route::post('/sections/subjects/assessment/get-assessement', 'SectionsController@subjectGetAssessment');
 
-            Route::post('/sections/subjects/get-lesson', 'SectionsController@getSubjectLesson');
+        Route::post('/sections/subjects/assessment/delete', 'SectionsController@subjectAssessmentDelete');
 
-            Route::post('/sections/subjects/lessons/delete', 'SectionsController@subjectLessonDelete');
+        Route::post('/sections/subjects/assessment/status', 'SectionsController@subjectAssessmentStatus');
 
-            Route::post('/sections/subjects/lessons/status', 'SectionsController@subjectLessonStatus');
+        Route::get('/sections/subjects/assessment/get-assessement/{sectionid}/{subjectid}/{id}','SectionsController@subjectGetAssessment2');
 
-            //topic
+        Route::get('/sections/subjects/assessment/answer/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment');
 
-            Route::post('/sections/subjects/topic/store', 'SectionsController@lessonTopicStore');
+        Route::get('/sections/subjects/assessment/answer2/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment2');
 
-            Route::post('/sections/subjects/lessons/topic/view', 'SectionsController@lessonTopicView');
+        Route::post('/sections/subjects/assessment/submit', 'SectionsController@subjectAssessmentSubmit');
 
-            Route::post('/sections/subjects/lessons/topic/delete', 'SectionsController@lessonTopicDelete');
+        Route::get('/sections/subjects/assessment/get/submitted/assessement/{sectionid}/{subjectid}/{id}','SectionsController@subjectGetSubmittedAssessment');
 
-            Route::post('/sections/subjects/lessons/topic/status', 'SectionsController@lessonTopicStatus');
+        Route::get('/sections/subjects/assessment/view/submitted/assessement/{sectionid}/{subjectid}/{userid}/{id}','SectionsController@subjectViewSubmittedAssessment');
 
+        Route::post('/sections/subjects/assessment/grade', 'SectionsController@subjectAssessmentGrade');
 
+        //question
 
-            //get my subject
+        Route::get('/get-question-type', 'SectionsController@getQuestionType');
 
-            Route::post('/sections/get-subject', 'SectionsController@getSubject');
+        Route::post('/sections/subjects/assessment/question/store', 'SectionsController@assessmentQuestionStore');
 
-            //assessments
+        Route::get('/sections/subjects/assessments/question-bank/{sectionid}/{subjectid}/{assessmentid}/{userid}', 'SectionsController@getQuestionBank');
 
-            Route::get('/sections/subjects/assessments/{sectionid}/{subjectid}/{assessment_id}', 'SectionsController@subjectAssessmentIndex');
+        Route::post('/sections/subjects/assessments/question-bank/store', 'SectionsController@assessmentQuestionBankStore');
 
-            Route::get('/sections/subjects/assessments/students/{sectionid}/{subjectid}/{assessment_id}', 'SectionsController@subjectAssessmentIndexStudents');
+        Route::post('/sections/subjects/assessment/question/delete', 'SectionsController@deleteQuestion');
 
-            Route::get('/sections/subjects/assessment/create/{sectionid}/{subjectid}','SectionsController@subjectAssessmentCreate');
+        Route::post('/sections/subjects/assessment/question/get/question', 'SectionsController@getQuestion');
 
-            Route::post('/get-sectiongradescale', 'SectionsController@getGradeScale');
+        //assign assessment
 
-            Route::post('/get-sectionassessmentscale', 'SectionsController@getAssessmentScale');
+        Route::get('/sections/subjects/assessment/assigned/assessement/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@studentAssessment');//online
 
-            Route::post('/sections/subjects/assessment/store', 'SectionsController@subjectAssessmentStore');
+        Route::get('/sections/subjects/assessment/assigned/assessement/modular/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@studentModularAssessment');//odular
 
-            Route::post('/sections/subjects/assessment/get-assessement', 'SectionsController@subjectGetAssessment');
+        Route::get('/sections/subjects/assessment/assign/assessement/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@assignAssessment');//online
 
-            Route::post('/sections/subjects/assessment/delete', 'SectionsController@subjectAssessmentDelete');
+        Route::get('/sections/subjects/assessment/assign/assessement/modular/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@assignModularAssessment');//odular
 
-            Route::post('/sections/subjects/assessment/status', 'SectionsController@subjectAssessmentStatus');
+        Route::post('/sections/subjects/assessment/assign/assessement/store', 'SectionsController@assignAssessmentStore');//online
 
-            Route::get('/sections/subjects/assessment/get-assessement/{sectionid}/{subjectid}/{id}','SectionsController@subjectGetAssessment2');
+        Route::post('/sections/subjects/assessment/assign/assessement/modular/store', 'SectionsController@assignAssessmentModularStore');//modular
 
-            Route::get('/sections/subjects/assessment/answer/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment');
+        Route::post('/sections/subjects/assessment/unassign/assessement/store', 'SectionsController@unassignAssessmentStore');//online
 
-            Route::get('/sections/subjects/assessment/answer2/{sectionid}/{subjectid}/{id}','SectionsController@subjectAnswerAssessment2');
+        Route::post('/sections/subjects/assessment/unassign/assessement/modular/store', 'SectionsController@unassignAssessmentModularStore');//modular
 
-            Route::post('/sections/subjects/assessment/submit', 'SectionsController@subjectAssessmentSubmit');
+        //student
 
-            Route::get('/sections/subjects/assessment/get/submitted/assessement/{sectionid}/{subjectid}/{id}','SectionsController@subjectGetSubmittedAssessment');
+        Route::get('/sections/students/{id}', 'SectionsController@studentIndex');//online
 
-            Route::get('/sections/subjects/assessment/view/submitted/assessement/{sectionid}/{subjectid}/{userid}/{id}','SectionsController@subjectViewSubmittedAssessment');
+        Route::get('/sections/students/modular/{id}', 'SectionsController@studentModularIndex');//modular
 
-            Route::post('/sections/subjects/assessment/grade', 'SectionsController@subjectAssessmentGrade');
+        Route::get('/sections/students/create/{id}', 'SectionsController@studentCreate');//online
 
-            //question
+        Route::get('/sections/students/modular/create/{id}', 'SectionsController@studentModularCreate');//modular
 
-            Route::get('/get-question-type', 'SectionsController@getQuestionType');
+        Route::post('/sections/students/store', 'SectionsController@studentsStore');//online
 
-            Route::post('/sections/subjects/assessment/question/store', 'SectionsController@assessmentQuestionStore');
+        Route::post('/sections/students/unenroll/store', 'SectionsController@unenrollstudentsStore');//online unenroll
 
-            Route::get('/sections/subjects/assessments/question-bank/{sectionid}/{subjectid}/{assessmentid}/{userid}', 'SectionsController@getQuestionBank');
+        Route::post('/sections/students/modular/store', 'SectionsController@studentsModularStore');//modular
 
-            Route::post('/sections/subjects/assessments/question-bank/store', 'SectionsController@assessmentQuestionBankStore');
+        //records
 
-            Route::post('/sections/subjects/assessment/question/delete', 'SectionsController@deleteQuestion');
+        Route::get('/sections/records/{id}', 'SectionsController@recordIndex');
 
-            Route::post('/sections/subjects/assessment/question/get/question', 'SectionsController@getQuestion');
+        Route::get('/sections/records/student/view/{id}', 'SectionsController@recordStudentView');
 
+        Route::get('/sections/records/student/view2/{sectionid}', 'SectionsController@recordStudentView2');
 
+        Route::get('sections/subjects/report/{sectionid}/{id}', 'SectionsController@recordSubject');
 
-            //assign assessment
+        Route::get('sections/subjects/report/export/{sectionid}/{id}', 'SectionsController@reportExport');
 
-            Route::get('/sections/subjects/assessment/assigned/assessement/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@studentAssessment');//online
+        Route::post('/sections/subjects/report/get-submitted-report', 'SectionsController@assessmentRecord');
 
-            Route::get('/sections/subjects/assessment/assigned/assessement/modular/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@studentModularAssessment');//modular
+        Route::post('/sections/subjects/report/edit-grade/store', 'SectionsController@editGradeStore');
 
-            Route::get('/sections/subjects/assessment/assign/assessement/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@assignAssessment');//online
+        /*library*/
 
-            Route::get('/sections/subjects/assessment/assign/assessement/modular/{sectionid}/{subjectid}/{assessmentid}', 'SectionsController@assignModularAssessment');//modular
+        Route::resource('/libraries', 'LibrariesController');
 
-            Route::post('/sections/subjects/assessment/assign/assessement/store', 'SectionsController@assignAssessmentStore');//online
+        /*My Account*/
 
-            Route::post('/sections/subjects/assessment/assign/assessement/modular/store', 'SectionsController@assignAssessmentModularStore');//modular
+        Route::get('/profile', 'MainHomeController@profile');
 
-            Route::post('/sections/subjects/assessment/unassign/assessement/store', 'SectionsController@unassignAssessmentStore');//online
+        Route::post('/profile/store', 'MainHomeController@profileStore');
 
-            Route::post('/sections/subjects/assessment/unassign/assessement/modular/store', 'SectionsController@unassignAssessmentModularStore');//modular
+        Route::post('/profile/changepassword', 'MainHomeController@changepassword');
 
-            //student
+        /*MESSAGE*/
 
-            Route::get('/sections/students/{id}', 'SectionsController@studentIndex');//online
+        //chat
 
-            Route::get('/sections/students/modular/{id}', 'SectionsController@studentModularIndex');//modular
+        Route::resource('/chats', 'ChatsController');
 
-            Route::get('/sections/students/create/{id}', 'SectionsController@studentCreate');//online
+        //Route::get('/chats/index/{id}', 'ChatsController@index');
 
-            Route::get('/sections/students/modular/create/{id}', 'SectionsController@studentModularCreate');//modular
+        Route::get('search/users', 'ChatsController@searchUser');
 
-            Route::post('/sections/students/store', 'SectionsController@studentsStore');//online
+        Route::post('message/chat', 'ChatsController@sendMessage');
 
-            Route::post('/sections/students/unenroll/store', 'SectionsController@unenrollstudentsStore');//online unenroll
+        //forums and announcements
 
-            Route::post('/sections/students/modular/store', 'SectionsController@studentsModularStore');//modular
+        Route::resource('/forums', 'ForumsController');
 
-            //records
+        Route::post('/get-forum', 'ForumsController@getForum');
 
-            Route::get('/sections/records/{id}', 'SectionsController@recordIndex');
+        Route::get('/forums/edit/{id}', 'ForumsController@edit');
 
-            Route::get('/sections/records/student/view/{id}', 'SectionsController@recordStudentView');
+        Route::post('/forums/like', 'ForumsController@likes');
 
-            Route::get('/sections/records/student/view2/{sectionid}', 'SectionsController@recordStudentView2');
+        Route::post('/forums/unlike', 'ForumsController@unlikes');
 
-            Route::get('sections/subjects/report/{sectionid}/{id}', 'SectionsController@recordSubject');
+        Route::post('/forums/heart', 'ForumsController@hearts');
 
-            Route::get('sections/subjects/report/export/{sectionid}/{id}', 'SectionsController@reportExport');
+        Route::post('/forums/unheart', 'ForumsController@unhearts');
 
-            Route::post('/sections/subjects/report/get-submitted-report', 'SectionsController@assessmentRecord');
+        Route::post('/forums/comment', 'ForumsController@comments');
 
-            Route::post('/sections/subjects/report/edit-grade/store', 'SectionsController@editGradeStore');
+        Route::post('/forums/get-comment', 'ForumsController@getForumComment');
 
-            /*library*/
+        Route::get('/forums/show/{id}', 'ForumsController@show');
 
-            Route::resource('/libraries', 'LibrariesController');
+        Route::post('/forums/delete', 'ForumsController@delete');
 
+        //email
 
+        Route::resource('/emails', 'EmailsController');
 
-            /*My Account*/
+        Route::get('/get-users', 'EmailsController@getUsers');
 
-            Route::get('/profile', 'MainHomeController@profile');
+        Route::post('/emails/inbox/delete', 'EmailsController@inboxDelete');
 
-            Route::post('/profile/store', 'MainHomeController@profileStore');
+        Route::get('/sent-email', 'EmailsController@sentEmail');
 
-            Route::post('/profile/changepassword', 'MainHomeController@changepassword');
+        Route::get('/emails/show/{id}', 'EmailsController@show');
 
+        Route::post('/emails/reply/store', 'EmailsController@replyStore');
 
+        Route::post('/emails/sent/delete', 'EmailsController@sentDelete');
 
-            /*MESSAGE*/
+        //NOTIFICATION
 
-            //chat
+        Route::get('/getnotifications/forum', 'ApiMessagesController@getNotifForum');
 
-            Route::resource('/chats', 'ChatsController');
+        Route::get('/getnotifications/email', 'ApiMessagesController@getNotifEmail');
 
-            //Route::get('/chats/index/{id}', 'ChatsController@index');
+        Route::get('/getnotifications/chat', 'ApiMessagesController@getNotifChat');
 
-            Route::get('search/users', 'ChatsController@searchUser');
+        Route::get('/getnotifications/emailchat', 'ApiMessagesController@getNotifEmailChat');
 
-            Route::post('message/chat', 'ChatsController@sendMessage');
+        //admin created subject
 
+        Route::resource('/createdsubjects', 'CreatedSubjectsController');
 
+        Route::get('/createdsubjects/view/{id}', 'CreatedSubjectsController@show');
 
-            //forums and announcements
+        Route::get('/createdsubjects/edit/{id}', 'CreatedSubjectsController@edit');
 
-            Route::resource('/forums', 'ForumsController');
+        Route::post('/get/createdsubject/gradescale', 'CreatedSubjectsController@gradescale');
 
-            Route::post('/get-forum', 'ForumsController@getForum');
+        //updating database
 
-            Route::get('/forums/edit/{id}', 'ForumsController@edit');
+        Route::get('/sample', 'EbooksController@asas');
 
-            Route::post('/forums/like', 'ForumsController@likes');
+        Route::get('/updatebd', 'SectionsController@updateDatabase');
 
-            Route::post('/forums/unlike', 'ForumsController@unlikes');
+        /*updating database for symlink and ssl*/
 
-            Route::post('/forums/heart', 'ForumsController@hearts');
+        //ebook
 
-            Route::post('/forums/unheart', 'ForumsController@unhearts');
+        Route::get('/databaseedit', 'WorkBooksController@databaseEdit');
 
-            Route::post('/forums/comment', 'ForumsController@comments');
+        //Activation Codes
 
-            Route::post('/forums/get-comment', 'ForumsController@getForumComment');
+        Route::resource('/activation','ActivationController');
 
-            Route::get('/forums/show/{id}', 'ForumsController@show');
+        Route::get('/activation/{book_id}/add','ActivationController@add_book');
 
-            Route::post('/forums/delete', 'ForumsController@delete');
+        Route::post('/activation/claim','ActivationController@claim_book');
 
+        //test
 
+        Route::get('/createfolder', 'MainHomeController@createMyDriveFolder');
 
-            //email
+        Route::get('/sampleexternal', 'MainHomeController@sampleexternal');
 
-            Route::resource('/emails', 'EmailsController');
-
-            Route::get('/get-users', 'EmailsController@getUsers');
-
-            Route::post('/emails/inbox/delete', 'EmailsController@inboxDelete');
-
-            Route::get('/sent-email', 'EmailsController@sentEmail');
-
-            Route::get('/emails/show/{id}', 'EmailsController@show');
-
-            Route::post('/emails/reply/store', 'EmailsController@replyStore');
-
-            Route::post('/emails/sent/delete', 'EmailsController@sentDelete');
-
-
-
-            //NOTIFICATION
-
-            Route::get('/getnotifications/forum', 'ApiMessagesController@getNotifForum');
-
-            Route::get('/getnotifications/email', 'ApiMessagesController@getNotifEmail');
-
-            Route::get('/getnotifications/chat', 'ApiMessagesController@getNotifChat');
-
-            Route::get('/getnotifications/emailchat', 'ApiMessagesController@getNotifEmailChat');
-
-
-
-
-
-            //admin created subject
-
-            Route::resource('/createdsubjects', 'CreatedSubjectsController');
-
-            Route::get('/createdsubjects/view/{id}', 'CreatedSubjectsController@show');
-
-            Route::get('/createdsubjects/edit/{id}', 'CreatedSubjectsController@edit');
-
-            Route::post('/get/createdsubject/gradescale', 'CreatedSubjectsController@gradescale');
-
-
-
-            //updating database
-
-            Route::get('/sample', 'EbooksController@asas');
-
-            Route::get('/updatebd', 'SectionsController@updateDatabase');
-
-
-
-            /*updating database for symlink and ssl*/
-
-            //ebook
-
-            Route::get('/databaseedit', 'WorkBooksController@databaseEdit');
-
-
-
-            //Activation Codes
-
-            //ACTIVATION
-
-            Route::resource('/activation','ActivationController');
-
-            Route::get('/activation/{book_id}/add','ActivationController@add_book');
-
-            Route::post('/activation/claim','ActivationController@claim_book');
-
-
-
-            //test
-
-            Route::get('/createfolder', 'MainHomeController@createMyDriveFolder');
-
-            Route::get('/sampleexternal', 'MainHomeController@sampleexternal');
-
-            Route::post('/test/save', 'MainHomeController@testsaveProfileModuleSample');
+        Route::post('/test/save', 'MainHomeController@testsaveProfileModuleSample');
 
     });
 
