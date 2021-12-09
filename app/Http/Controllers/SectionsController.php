@@ -897,6 +897,12 @@ class SectionsController extends Controller
 
                 }
 
+                if ($extension == 'pdf') {
+                    $transform1 = str_replace('https://drive.google.com/uc?id=', 'https://drive.google.com/file/d/', $path);
+                    $transform2 = str_replace('&export=media', '/preview', $transform1);
+                    $path = $transform2;
+                }
+
                 Topic::create([
                                     'name'                  => request('name'),
                                     'content_type'          => request('content_type'),
