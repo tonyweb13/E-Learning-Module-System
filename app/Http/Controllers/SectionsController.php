@@ -2211,7 +2211,10 @@ class SectionsController extends Controller
     //record of every subject
     public function recordSubject($section_id,$id){
 
-        Set_time_limit(0);
+        ini_set("max_execution_time", "-1");
+        ini_set("memory_limit", "-1");
+        ignore_user_abort(true);
+        set_time_limit(0);
         $section=Section::where('id',$section_id)->first();
         $subject=SectionSubject::with([
                                             'sectionAssessmentScale'
@@ -2254,22 +2257,23 @@ class SectionsController extends Controller
                 foreach($scale->subjectAssessment as $assessment){
 
                 /* Get Duplicates question id */
-                $submittedReportAssessments = SubmittedReportAssessment::where('subject_assessment_id', $assessment->id)
-                ->where('added_by', $student->student_id)
-                ->groupBy('question_id')
-                ->havingRaw('COUNT(question_id) > 1')
-                ->get();
+                // $submittedReportAssessments = SubmittedReportAssessment::where('subject_assessment_id', $assessment->id)
+                // ->where('added_by', $student->student_id)
+                // ->groupBy('question_id')
+                // ->havingRaw('COUNT(question_id) > 1')
+                // ->get();
 
                 /* Remove duplicates */
-                if (count($submittedReportAssessments) > 0) {
-                    foreach($submittedReportAssessments as $submittedReportAssess) {
-                        SubmittedReportAssessment::where('subject_assessment_id', $submittedReportAssess->subject_assessment_id)
-                         ->where('added_by', $submittedReportAssess->added_by)
-                         ->where('question_id', $submittedReportAssess->question_id)
-                         ->where('id', $submittedReportAssess->id)
-                         ->update(['is_deleted'  => 1]);
-                     }
-                }
+                // if (count($submittedReportAssessments) > 0) {
+                //     foreach($submittedReportAssessments as $submittedReportAssess) {
+                //         SubmittedReportAssessment::where('subject_assessment_id', $submittedReportAssess->subject_assessment_id)
+                //          ->where('added_by', $submittedReportAssess->added_by)
+                //          ->where('question_id', $submittedReportAssess->question_id)
+                //          ->where('id', $submittedReportAssess->id)
+                //          ->update(['is_deleted'  => 1]);
+                //      }
+                // }
+
                     //get all submitted assessment
                     $score=AssessmentStudent::with([
                                                         'submittedAssessment'=>function($q){

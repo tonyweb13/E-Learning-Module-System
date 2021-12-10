@@ -178,11 +178,12 @@
 
                                                             </a>
 
-                                                            <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                            <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                                 <i class="fas fa-chart-line"></i>
 
-                                                            </a>
+                                                            </a> -->
+                                                            <div class="action-btn btn text-light mb-1"></div>
 
                                                         @else
 
@@ -236,11 +237,12 @@
 
                                                             </a>
 
-                                                            <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                            <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                                 <i class="fas fa-chart-line"></i>
 
-                                                            </a>
+                                                            </a> -->
+                                                            <div class="action-btn btn text-light mb-1"></div>
 
                                                         @endif
 
@@ -306,11 +308,12 @@
 
                                                         </a>
 
-                                                        <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                        <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                             <i class="fas fa-chart-line"></i>
 
-                                                        </a>
+                                                        </a> -->
+                                                        <div class="action-btn btn text-light mb-1"></div>
 
                                                     @else
 
@@ -418,11 +421,12 @@
 
                                                             </a>
 
-                                                            <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                            <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                                 <i class="fas fa-chart-line"></i>
 
-                                                            </a>
+                                                            </a> -->
+                                                            <div class="action-btn btn text-light mb-1"></div>
 
                                                         @else
 
@@ -476,11 +480,12 @@
 
                                                             </a>
 
-                                                            <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                            <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                                 <i class="fas fa-chart-line"></i>
 
-                                                            </a>
+                                                            </a> -->
+                                                            <div class="action-btn btn text-light mb-1"></div>
 
                                                         @endif
 
@@ -546,11 +551,12 @@
 
                                                         </a>
 
-                                                        <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
+                                                        <!-- <a href="/sections/subjects/report/modular/{{$section->id}}/{{$result->id}}" data-toggle="tooltip" title="View Modular Learners  Grades " class="action-btn btn text-light mb-1" style="background-color:#f15a24;">
 
                                                             <i class="fas fa-chart-line"></i>
 
-                                                        </a>
+                                                        </a> -->
+                                                        <div class="action-btn btn text-light mb-1"></div>
 
                                                     @else
 
