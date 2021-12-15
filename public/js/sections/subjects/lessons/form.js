@@ -40,6 +40,8 @@ function checkActiveLi(){
 
 function addLesson(lesson_id){
 
+    showLoader('Loading','Please wait....');
+
     $.ajax({
 
         type: "post",
@@ -62,6 +64,8 @@ function addLesson(lesson_id){
 
             $('#lesson').val(res.name);
 
+            Swal.close();
+
         },
 
         error: function(error) {
@@ -79,6 +83,8 @@ function addLesson(lesson_id){
 
 
 function deleteLesson(id){
+
+    showLoader('Loading','Please wait....');
 
     section=$('#section').val();
 
@@ -110,6 +116,8 @@ function deleteLesson(id){
 
                 window.location = `/sections/subjects/lessons/view/${section}/${subject}/null`;
 
+                Swal.close();
+
               }
 
             },
@@ -132,7 +140,7 @@ function deleteLesson(id){
 
 function uploadLesson(id){
 
-
+    showLoader('Loading','Please wait....');
 
     $.ajax({
 
@@ -156,6 +164,8 @@ function uploadLesson(id){
 
                 showSuccessAlert('Success', 'Lesson successfully uploaded/published,Enrolled Student and Institutional Admin can now see this lesson');
 
+                Swal.close();
+
                 location.reload();
 
               }
@@ -176,7 +186,7 @@ function uploadLesson(id){
 
 function hideLesson(id){
 
-
+    showLoader('Loading','Please wait....');
 
     $.ajax({
 
@@ -200,6 +210,7 @@ function hideLesson(id){
 
                 showSuccessAlert('Success', 'Lesson successfully unpublished,You and shared teacher can only see this lesson');
 
+                Swal.close();
                 location.reload();
 
               }
@@ -220,7 +231,7 @@ function hideLesson(id){
 
 function uploadTopicStatus(id){
 
-
+    showLoader('Loading','Please wait....');
 
     $.ajax({
 
@@ -244,6 +255,7 @@ function uploadTopicStatus(id){
 
                 showSuccessAlert('Success', 'Topic successfully uploded/published,Enrolled Student and Institutional Admin can now see this topic');
 
+                Swal.close();
                 location.reload();
 
               }
@@ -264,7 +276,7 @@ function uploadTopicStatus(id){
 
 function hideTopic(id){
 
-
+    showLoader('Loading','Please wait....');
 
     $.ajax({
 
@@ -288,6 +300,7 @@ function hideTopic(id){
 
                 showSuccessAlert('Success', 'Topic successfully unpublished,You and shared teacher can only see this topic');
 
+                Swal.close();
                 location.reload();
 
               }
@@ -332,16 +345,15 @@ function uploadTopic(topic_id){
 
             $('#name').val(res.name);
 
-            Swal.close();
-
             $("#upload-modal").modal("show");
+
+            Swal.close();
 
         },
 
         error: function(error) {
 
             showHttpErrorAlert(error);
-            Swal.close();
         }
 
     });
@@ -395,6 +407,7 @@ function createTopic(topic_id){
 
 function viewTopic(topic_id){
 
+    showLoader('Loading','Please wait....');
 	console.log(topic_id);
 
 	//get topic
@@ -564,7 +577,6 @@ function viewTopic(topic_id){
 
 
 
-
                 $("#view-modal").modal("show");
 
             }else{
@@ -577,7 +589,7 @@ function viewTopic(topic_id){
 
             }
 
-
+            Swal.close();
 
         },
 
@@ -596,6 +608,8 @@ function viewTopic(topic_id){
 function deleteData(id){
 
     if (confirm("Are you sure you want to delete!")) {
+
+        showLoader('Loading','Please wait....');
 
         //get canada province
 
@@ -619,6 +633,7 @@ function deleteData(id){
 
                 showSuccessAlert('Success', 'Topic successfully delete');
 
+                Swal.close();
                 location.reload();
 
               }
