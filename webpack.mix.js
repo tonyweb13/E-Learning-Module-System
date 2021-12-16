@@ -33,7 +33,6 @@ const mix = require('laravel-mix');
     'resources/assets/css/colors.css',
     'resources/assets/css/login.css',
     'resources/assets/css/sidenav.css',
-    // 'resources/assets/css/web.css',
 ],'public/css/public.css');
 
 mix.js([
