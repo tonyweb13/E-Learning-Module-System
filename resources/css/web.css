@@ -1,0 +1,219 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../css/font/Roboto-Regular.ttf)
+}
+@media print {
+	.no-print, nav, .btn {
+		display: none !important;
+	}
+    .geo-secondary {
+        background-color: #142d57 !important;
+        -webkit-print-color-adjust: exact; 
+    }
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #142d57; 
+    border-radius: 5px
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /*background: #60bb46; */
+    background: #224d93; 
+}
+html, body {
+	/*font-family: "Open Sans", Arial, serif !important;*/
+	/*font-family: Lato; */
+	font-family: "Roboto-Regular" !important;
+	/*font-size:.9em !important;*/
+	font-size:.9em !important;
+	line-height:1.5;
+	margin: 0px;
+	overflow-x: hidden !important;
+	padding: 0px !important;
+}
+/*here is a tag*/
+a {
+	color: #142d57 !important;
+	/*color: white !important;*/
+}
+a:hover {
+	/*color: #60bb46 !important;*/
+	color: #224d93;
+	text-decoration: none !important;
+}
+li.page-item.active span.page-link {
+	/*background-color: #60bb46 !important;
+	border: 1px solid #60bb46;*/
+	background-color: #224d93 !important;
+	border: 1px solid #224d93;
+}
+.ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+}
+.table-td-top td {
+	vertical-align: top !important;
+}
+
+tr:nth-child(even) {
+    background-color: #d1d3d4;
+    
+}
+
+tr:nth-child(odd) {
+    background-color: #e6e7e8;
+    
+}
+.right {
+	float: right !important;
+}
+.left {
+	float: left !important;
+}
+.btn {
+	border-radius: 3px !important;
+	font-size: 1em !important;
+}
+.regular {
+	font-size: 1em !important;
+}
+.small {
+	font-size: .9em !important;
+}
+.smaller {
+	font-size: .85em !important;
+}
+.pointer {
+	cursor: pointer !important;
+}
+.left-bar {
+	/*border-left: 5px solid #60bb46 !important;*/
+	border-left: 5px solid #224d93 !important;
+}
+td {
+	vertical-align: middle !important;
+}
+.body-bg {
+	font-family: Lato; 
+	background-color: white;
+	/*background-color: #f1f3f9 !important;*/
+}
+.text-color{
+	color: #939693;
+
+}
+textarea {
+	resize: none !important;
+}
+.status-badge {
+	padding:5px;
+	border-radius: 20px;
+	font-size: .8em;
+	border: none;
+}
+.profile-img {
+	width: 30px;
+	border: 1px solid #f1f1f1;
+	border-radius: 30px;
+	margin-right: 2px;
+}
+.profile-img-forum {
+	width: 50px;
+	border: 1px solid #f1f1f1;
+	border-radius: 20px;
+	margin-right: 2px;
+}
+.action-btn {
+	width: 37px !important;
+	height: 35px !important;
+	padding: 10px 10px 10px 10px !important;
+	line-height: 0px !important;
+}
+.geo-btn {
+	border: none;
+	border-radius: 2px;
+	width: 25px;
+	height: 25px;
+}
+.search-btn {
+	line-height: 1.5;
+	width: 40px;
+	border-radius: 2px;
+	border: 0;
+	cursor: pointer;
+}
+.paragraph {
+	white-space: pre-wrap;
+}
+.swal-title {
+	font-size: 18px !important;
+}
+.swal-subtitle {
+	font-size: 14px !important;
+}
+.swal-okay-button {
+	font-size: 12px !important;
+	padding: 10px 15px 10px 15px !important;
+	width: 100% !important;
+}
+.btn-warn {
+	background-color: #facea8 !important;
+	color: black !important;
+}
+
+
+/*navbar*/
+.navbar {
+  padding:0rem;
+  margin-bottom:2rem;
+}
+
+.dropdown .dropdown-menu {
+  border-radius:0;
+ }
+
+
+/* Medium devices (tablets, 768px and up) 
+The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  border-radius:0;
+ }
+}
+
+
+.button-add{
+    background-color: #e8b825;
+    padding: 20px;
+    border-radius: 50px !important;
+    text-align: center;
+    border-radius: 20px;
+    float: right;
+    margin-right: 19px;
+    font-size: 13px;
+    font-family: Novecento-WideMedium;
+    color: #000;
+    padding: 10px 20px !important;
+}
+.button-add i{
+	margin-left: 10px;
+}  
+.button-add:hover{
+	 background-color: #218838 !important;
+	 color:#FFFFF !important;
+} 
+
+

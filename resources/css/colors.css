@@ -1,0 +1,29 @@
+.geo-primary {
+	background-color: #142d57 !important;
+	color: white !important;
+}
+.btn.geo-primary:hover,.search-btn.geo-primary:hover {
+	background-color: #142d57 !important;
+}
+.geo-secondary {
+	background-color: #142d57 !important;
+	color: white !important;
+}
+.btn.geo-secondary:hover,.search-btn.geo-secondary:hover {
+	background-color: #224d93 !important;
+}
+.geo-text-primary {
+	color: #224d93 !important;
+}
+.geo-text-secondary {
+	color: #142d57 !important;
+}
+.geo-border-primary {
+	border-color: #224d93 !important;
+}
+.geo-border-secondary {
+	border-color: #142d57 !important;
+}
+.pastel-red {
+	background-color: #e98f83 !important;
+}
