@@ -910,7 +910,7 @@ class SectionsController extends Controller
                                     'extension'             => $extension,
                                     'lesson_id'             => request('lesson_id'),
                                     'added_by'              => request('current_user'),
-                                    'status'=>0,
+                                    'status'                => 0,
                                     'is_deleted'            => 0,
                               ]);
             }
@@ -1927,22 +1927,23 @@ class SectionsController extends Controller
                                    ->get();
 
         /* Get Duplicates question id */
-        $submittedAssessments = SubmittedAssessment::where('subject_assessment_id', $assessment_id)
-        ->where('added_by', $user_id)
-        ->groupBy('question_id')
-        ->havingRaw('COUNT(question_id) > 1')
-        ->get();
+        // $submittedAssessments = SubmittedAssessment::where('subject_assessment_id', $assessment_id)
+        // ->where('added_by', $user_id)
+        // ->groupBy('question_id')
+        // ->havingRaw('COUNT(question_id) > 1')
+        // ->get();
 
         /* Remove duplicates */
-        if (count($submittedAssessments) > 0) {
-            foreach($submittedAssessments as $submittedAssess) {
-                SubmittedAssessment::where('subject_assessment_id', $submittedAssess->subject_assessment_id)
-                 ->where('added_by', $submittedAssess->added_by)
-                 ->where('question_id', $submittedAssess->question_id)
-                 ->where('id', $submittedAssess->id)
-                 ->update(['is_deleted'  => 1]);
-             }
-        }
+        // if (count($submittedAssessments) > 0) {
+        //     foreach($submittedAssessments as $submittedAssess) {
+        //         SubmittedAssessment::where('subject_assessment_id', $submittedAssess->subject_assessment_id)
+        //          ->where('added_by', $submittedAssess->added_by)
+        //          ->where('question_id', $submittedAssess->question_id)
+        //          ->where('id', $submittedAssess->id)
+        //          ->update(['is_deleted'  => 1]);
+
+        //      }
+        // }
 
         $user = User::where('id', $user_id)->first();
 

@@ -33,8 +33,15 @@ mix.js([
     'resources/assets/js/navbar.js',
 ], 'public/js/auth_app.js');
 
- mix.copyDirectory('resources/assets/fonts','public/fonts', false);
+mix.copyDirectory('resources/assets/fonts','public/fonts', false);
+mix.copyDirectory('resources/assets/img', 'public/img');
 
- mix.copyDirectory('resources/assets/img', 'public/img');
+mix.copyDirectory('resources/js/dashboard', 'public/js/dashboard');
+mix.copyDirectory('resources/js/ebooks', 'public/js/ebooks');
+mix.copyDirectory('resources/js/guides', 'public/js/guides');
+mix.copyDirectory('resources/js/sections', 'public/js/sections');
+mix.copyDirectory('resources/js/subjects', 'public/js/subjects');
+mix.copyDirectory('resources/js/textbooks', 'public/js/textbooks');
+mix.copyDirectory('resources/js/users', 'public/js/users');
 
- mix.version();
+mix.version();

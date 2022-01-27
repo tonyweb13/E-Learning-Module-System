@@ -317,7 +317,26 @@ function hideTopic(id){
 
 }
 
+function uploadSizeValidation () {
+    const fi = document.getElementById('topic');
+    // Check if any file is selected.
+    if (fi.files.length > 0) {
+        for (const i = 0; i <= fi.files.length - 1; i++) {
 
+            const fsize = fi.files.item(i).size;
+            const file = Math.round((fsize / 1024));
+            // The size of the file.
+            if (file >= 25600) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'File is too Big!!!',
+                    text: 'Please select a file less than 25MB'
+                });
+                $('#topic').val('');
+            }
+        }
+    }
+}
 
 function uploadTopic(topic_id){
 
